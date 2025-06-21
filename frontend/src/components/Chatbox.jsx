@@ -18,7 +18,7 @@ return (
         }}
     >
         {messages.length === 0 ? (
-            <div style={{ color: '#aaa', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
+            <div style={{ color: '#000', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
                 Belum ada pesan
             </div>
         ) : (
@@ -29,13 +29,14 @@ return (
                         style={{
                             margin: '8px 0',
                             display: 'flex',
-                            justifyContent: 'flex-end',
+                            justifyContent: msg.from === 'user' ? 'flex-end' : 'flex-start',
                             width: '100%',
                         }}
                     >
                         <span
                             style={{
-                                background: msg.from === 'user' ? '#d1e7dd' : '#e2e3e5',
+                                background: msg.from === 'user' ? '#b9fbc0' : '#a3c9f9',
+                                color: '#000',
                                 padding: '6px 12px',
                                 borderRadius: '16px',
                                 display: 'inline-block',

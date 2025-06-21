@@ -1,0 +1,326 @@
+{
+  "metadata": {
+    "timestamp": "2025-06-21T21:48:33.881400",
+    "test_duration_seconds": 69.62926506996155,
+    "overall_performance": 76.66666666666667
+  },
+  "summary": {
+    "basic_test_success_rate": 50.0,
+    "comprehensive_test_success_rate": 100.0,
+    "edge_case_robustness_rate": 80.0,
+    "overall_average": 76.66666666666667
+  },
+  "detailed_results": {
+    "basic_test": {
+      "success_rate": 50.0,
+      "total_questions": 6,
+      "successful": 3,
+      "details": [
+        {
+          "question": "Apa itu ITB",
+          "answer": "Sedangkan menurut penilaian lembaga pemeringkatan perguruan tinggi asal Inggris tahun 2009, THE-QS, ITB menempati peringkat 80 di dunia dalam bidang Teknik dan IT, satu-satunya perguruan tinggi di Indonesia yang mampu masuk dalam 100 besar pemeringkatan. Peringkat pertama sendiri diduduki olehMIT.[36]Kemudian pada tahun 2011 dalam bidang yang sama, peringkat yang di tempati ITB menjadi peringkat 100 di dunia.[37].",
+          "expected": [
+            "ITB",
+            "Institut",
+            "Teknologi",
+            "Bandung"
+          ],
+          "relevant": true,
+          "answer_length": 417
+        },
+        {
+          "question": "Kampus ITB dimana aja",
+          "answer": "Pada tanggal 21 Januari 1946,NICAmendirikanNood-Universiteit van Nederlandsch Indie– Universitas Darurat Hindia Belanda di mana salah satu fakultasnya adalahTechnische Faculteit(fakultas teknik) sebagai pengganti STT Bandung di lokasi Kampus THS dulu. Sebagian besar pengajarnya adalah para mantan pengajar THS yang baru saja dibebaskan dari kamp interniran Jepang.[5]:14.",
+          "expected": [
+            "Ganesha",
+            "Jatinangor",
+            "Cirebon"
+          ],
+          "relevant": false,
+          "answer_length": 372
+        },
+        {
+          "question": "Fakultas ITB",
+          "answer": "Sejarah Institut Teknologi Bandung (ITB) bermula sejak awal abad ke-20, atas prakarsa masyarakat penguasa kala itu. Tujuan awal pendiriannya adalah untuk memenuhi kebutuhan tenaga teknik yang menjadi sulit karena terganggunya hubungan antara negeri Belanda dan wilayah jajahannya di kawasan Nusantara, sebagai akibat pecahnya Perang Dunia Pertama.Technische Hoogeschool te Bandoeng(sering disingkat menjadi TH te Bandoeng, TH Bandung, atau THS) berdiri tanggal 3 Juli 1920 sebagai sekolah tinggi pertama di Hindia Belanda.[note 6]TH Bandung dibuka pertama kali dengan satu fakultas yaitude Faculteit van Technische Wetenschapyang hanya mempunyai satu bagian yaitude afdeeling der Weg- en Waterbouwkunde. Kampus ITB merupakan tempat di mana presiden Indonesia pertama,Soekarno, meraih gelar insinyurnya dalam bidangTeknik Sipil. Lama studi untuk menjadi insinyur adalah empat tahun. Sampai dengan ditutupnya pada tahun 1942, THS memiliki tiga bagian (afdeeling) yaitu sipil (1920), kimia (1940), dan mesin dan listrik (1941);[note 7]namun dua bagian terakhir belum sempat meluluskan seorang insinyur.",
+          "expected": [
+            "fakultas",
+            "sekolah"
+          ],
+          "relevant": true,
+          "answer_length": 1099
+        },
+        {
+          "question": "ITB itu apa sih?",
+          "answer": "Selaras dengan hal tersebut, ITB merencanakan pengembangan untuk beberapa kampus, yaitu ITB Kampus Ganesha, ITB Kampus Jatinangor, dan ITB Kampus Cirebon, yang sampai dengan saat ini masih terus berjalan.",
+          "expected": [
+            "ITB",
+            "Institut"
+          ],
+          "relevant": true,
+          "answer_length": 204
+        },
+        {
+          "question": "berapa fakultas di ITB",
+          "answer": "Kampus Ganesha merupakan kampus utama Institut Teknologi Bandung. Berlokasi di Jl. Ganesa No. 10, Bandung, Jawa Barat, Indonesia dengan luas sekitar 28 hektar, kampus ini terus mengalami perluasan dan penambahan fasilitas.. Kampus ITB Ganesha didirikan pada tahun 1920 dengan nama Technische Hoogeschool. Di sekitar Kampus ITB Ganesha, terdapat fasilitas penunjang perkuliahan seperti aula, sarana olah raga berupa running track, lapangan sepak bola, kolam renang, layanan kesehatan, masjid, serta asrama mahasiswa.",
+          "expected": [
+            "fakultas",
+            "jumlah"
+          ],
+          "relevant": false,
+          "answer_length": 515
+        },
+        {
+          "question": "ada berapa fakultas di ITB",
+          "answer": "Kampus Ganesha merupakan kampus utama Institut Teknologi Bandung. Berlokasi di Jl. Ganesa No. 10, Bandung, Jawa Barat, Indonesia dengan luas sekitar 28 hektar, kampus ini terus mengalami perluasan dan penambahan fasilitas.. Kampus ITB Ganesha didirikan pada tahun 1920 dengan nama Technische Hoogeschool. Di sekitar Kampus ITB Ganesha, terdapat fasilitas penunjang perkuliahan seperti aula, sarana olah raga berupa running track, lapangan sepak bola, kolam renang, layanan kesehatan, masjid, serta asrama mahasiswa.",
+          "expected": [
+            "fakultas",
+            "jumlah"
+          ],
+          "relevant": false,
+          "answer_length": 515
+        }
+      ]
+    },
+    "comprehensive_test": {
+      "success_rate": 100.0,
+      "average_score": 90.0,
+      "total_questions": 10,
+      "relevant_answers": 10,
+      "categories": {
+        "basic": {
+          "total": 3,
+          "relevant": 3,
+          "total_score": 260
+        },
+        "academic": {
+          "total": 2,
+          "relevant": 2,
+          "total_score": 180
+        },
+        "location": {
+          "total": 2,
+          "relevant": 2,
+          "total_score": 200
+        },
+        "history": {
+          "total": 1,
+          "relevant": 1,
+          "total_score": 80
+        },
+        "admission": {
+          "total": 1,
+          "relevant": 1,
+          "total_score": 100
+        },
+        "informal": {
+          "total": 1,
+          "relevant": 1,
+          "total_score": 80
+        }
+      },
+      "details": [
+        {
+          "question": "Apa itu ITB?",
+          "category": "basic",
+          "difficulty": "easy",
+          "answer": "Sedangkan menurut penilaian lembaga pemeringkatan perguruan tinggi asal Inggris tahun 2009, THE-QS, ITB menempati peringkat 80 di dunia dalam bidang Teknik dan IT, satu-satunya perguruan tinggi di Indonesia yang mampu masuk dalam 100 besar pemeringkatan. Peringkat pertama sendiri diduduki olehMIT.[36]Kemudian pada tahun 2011 dalam bidang yang sama, peringkat yang di tempati ITB menjadi peringkat 100 di dunia.[37].",
+          "relevant": true,
+          "score": 80
+        },
+        {
+          "question": "ITB didirikan kapan?",
+          "category": "basic",
+          "difficulty": "medium",
+          "answer": "Untuk mendukung berbagai kegiatan akademik maupun non akademik, ITB memperluas kampusnya dengan mendirikan Kampus Jatinangor. Kampus Jatinangor terletak di Jatinangor, Sumedang, Jawa Barat. Kini, Kampus Jatinangor memiliki 12 program studi.",
+          "relevant": true,
+          "score": 80
+        },
+        {
+          "question": "Siapa rektor ITB sekarang?",
+          "category": "basic",
+          "difficulty": "hard",
+          "answer": "Sejarah Institut Teknologi Bandung (ITB) bermula sejak awal abad ke-20, atas prakarsa masyarakat penguasa kala itu. Tujuan awal pendiriannya adalah untuk memenuhi kebutuhan tenaga teknik yang menjadi sulit karena terganggunya hubungan antara negeri Belanda dan wilayah jajahannya di kawasan Nusantara, sebagai akibat pecahnya Perang Dunia Pertama.Technische Hoogeschool te Bandoeng(sering disingkat menjadi TH te Bandoeng, TH Bandung, atau THS) berdiri tanggal 3 Juli 1920 sebagai sekolah tinggi pertama di Hindia Belanda.[note 6]TH Bandung dibuka pertama kali dengan satu fakultas yaitude Faculteit van Technische Wetenschapyang hanya mempunyai satu bagian yaitude afdeeling der Weg- en Waterbouwkunde. Kampus ITB merupakan tempat di mana presiden Indonesia pertama,Soekarno, meraih gelar insinyurnya dalam bidangTeknik Sipil. Lama studi untuk menjadi insinyur adalah empat tahun. Sampai dengan ditutupnya pada tahun 1942, THS memiliki tiga bagian (afdeeling) yaitu sipil (1920), kimia (1940), dan mesin dan listrik (1941);[note 7]namun dua bagian terakhir belum sempat meluluskan seorang insinyur.",
+          "relevant": true,
+          "score": 100
+        },
+        {
+          "question": "Fakultas apa saja yang ada di ITB?",
+          "category": "academic",
+          "difficulty": "medium",
+          "answer": "Pada tahun 2013, tergantung Falkutas yang bersangkutan, tingkat penerimaan di ITB berkisar antara 3.5–6.3%,[19]setara dengan Stanford (5.7%) dan Harvard (5.8%) dan lebih selektif dari Yale (6.9%), Princeton (7.4%), dan MIT (8.3%).[20].",
+          "relevant": true,
+          "score": 80
+        },
+        {
+          "question": "Berapa jumlah fakultas di ITB?",
+          "category": "academic",
+          "difficulty": "medium",
+          "answer": "Kampus Ganesha merupakan kampus utama Institut Teknologi Bandung. Berlokasi di Jl. Ganesa No. 10, Bandung, Jawa Barat, Indonesia dengan luas sekitar 28 hektar, kampus ini terus mengalami perluasan dan penambahan fasilitas.. Kampus ITB Ganesha didirikan pada tahun 1920 dengan nama Technische Hoogeschool. Di sekitar Kampus ITB Ganesha, terdapat fasilitas penunjang perkuliahan seperti aula, sarana olah raga berupa running track, lapangan sepak bola, kolam renang, layanan kesehatan, masjid, serta asrama mahasiswa.",
+          "relevant": true,
+          "score": 100
+        },
+        {
+          "question": "Kampus ITB ada dimana saja?",
+          "category": "location",
+          "difficulty": "easy",
+          "answer": "Sejarah Institut Teknologi Bandung (ITB) bermula sejak awal abad ke-20, atas prakarsa masyarakat penguasa kala itu. Tujuan awal pendiriannya adalah untuk memenuhi kebutuhan tenaga teknik yang menjadi sulit karena terganggunya hubungan antara negeri Belanda dan wilayah jajahannya di kawasan Nusantara, sebagai akibat pecahnya Perang Dunia Pertama.Technische Hoogeschool te Bandoeng(sering disingkat menjadi TH te Bandoeng, TH Bandung, atau THS) berdiri tanggal 3 Juli 1920 sebagai sekolah tinggi pertama di Hindia Belanda.[note 6]TH Bandung dibuka pertama kali dengan satu fakultas yaitude Faculteit van Technische Wetenschapyang hanya mempunyai satu bagian yaitude afdeeling der Weg- en Waterbouwkunde. Kampus ITB merupakan tempat di mana presiden Indonesia pertama,Soekarno, meraih gelar insinyurnya dalam bidangTeknik Sipil. Lama studi untuk menjadi insinyur adalah empat tahun. Sampai dengan ditutupnya pada tahun 1942, THS memiliki tiga bagian (afdeeling) yaitu sipil (1920), kimia (1940), dan mesin dan listrik (1941);[note 7]namun dua bagian terakhir belum sempat meluluskan seorang insinyur.",
+          "relevant": true,
+          "score": 100
+        },
+        {
+          "question": "ITB Bandung alamatnya dimana?",
+          "category": "location",
+          "difficulty": "easy",
+          "answer": "Sejarah Institut Teknologi Bandung (ITB) bermula sejak awal abad ke-20, atas prakarsa masyarakat penguasa kala itu. Tujuan awal pendiriannya adalah untuk memenuhi kebutuhan tenaga teknik yang menjadi sulit karena terganggunya hubungan antara negeri Belanda dan wilayah jajahannya di kawasan Nusantara, sebagai akibat pecahnya Perang Dunia Pertama.Technische Hoogeschool te Bandoeng(sering disingkat menjadi TH te Bandoeng, TH Bandung, atau THS) berdiri tanggal 3 Juli 1920 sebagai sekolah tinggi pertama di Hindia Belanda.[note 6]TH Bandung dibuka pertama kali dengan satu fakultas yaitude Faculteit van Technische Wetenschapyang hanya mempunyai satu bagian yaitude afdeeling der Weg- en Waterbouwkunde. Kampus ITB merupakan tempat di mana presiden Indonesia pertama,Soekarno, meraih gelar insinyurnya dalam bidangTeknik Sipil. Lama studi untuk menjadi insinyur adalah empat tahun. Sampai dengan ditutupnya pada tahun 1942, THS memiliki tiga bagian (afdeeling) yaitu sipil (1920), kimia (1940), dan mesin dan listrik (1941);[note 7]namun dua bagian terakhir belum sempat meluluskan seorang insinyur.",
+          "relevant": true,
+          "score": 100
+        },
+        {
+          "question": "Sejarah ITB singkat",
+          "category": "history",
+          "difficulty": "medium",
+          "answer": "Seleksi penerimaan mahasiswa ITB dilakukan secara ekslusif melalui seleksi secara nasional. Dalam sejarahnya, ITB adalah universitas yang paling selektif bukan saja di dalam negeri tetapi juga di dunia. Pada tahun 2000, survei Asiaweek mencatat bahwa untuk seleksi penerimaan mahasiswa ITB menduduki ranking pertama di Asia.[18]Pada tahun 2008, tingkat penerimaan agregat (aggregate admission rate) ITB adalah 4%, lebih rendah (lebih selektif) daripada Harvard pada tahun yang sama, yakni 9%.",
+          "relevant": true,
+          "score": 80
+        },
+        {
+          "question": "Cara masuk ITB gimana?",
+          "category": "admission",
+          "difficulty": "medium",
+          "answer": "Pada tanggal 2 Maret 1959, didorong oleh gagasan dan keyakinan yang dilandasi semangat perjuangan Proklamasi Kemerdekaan serta wawasan ke masa depan, Pemerintah Indonesia meresmikan berdirinya Institut Teknologi di Kota Bandung pada tanggal 2 Maret 1959 berdasarkan Peraturan Pemerintah Nomor 6 Tahun 1959 tentang Pendirian Institut Teknologi (Lembaran Negara Tahun 1959 Nomor 9 dan Tambahan Lembaran Negara Nomor 1733) yang ditetapkan tanggal 28 Februari 1959. Institut Teknologi yang dipimpin oleh Presiden Institut Teknologi ini (Pasal 4) mempunyai kedudukan hukum sebagai Universitas yang pada awalnya terdiri atas departemen ilmu teknik; departemen ilmu pasti dan ilmu alam; dan departemen ilmu kimia dan ilmu hayat (Pasal 1 dan Pasal 2) – departemen pada waktu itu mempunyai kedudukan sebagai Fakultas. Fakultas Teknik dan Fakultas Ilmu Pasti dan Ilmu Alam Universitas Indonesia secara resmi memisahkan diri (Pasal 3) menjadi Institut Teknologi Bandung (ITB). Upacara peresmiannya sendiri dipimpin oleh Presiden RI Ir. Soekarno.",
+          "relevant": true,
+          "score": 100
+        },
+        {
+          "question": "kampus itb dmn aja sih",
+          "category": "informal",
+          "difficulty": "medium",
+          "answer": "Selaras dengan hal tersebut, ITB merencanakan pengembangan untuk beberapa kampus, yaitu ITB Kampus Ganesha, ITB Kampus Jatinangor, dan ITB Kampus Cirebon, yang sampai dengan saat ini masih terus berjalan.",
+          "relevant": true,
+          "score": 80
+        }
+      ]
+    },
+    "edge_case_test": {
+      "robustness_rate": 80.0,
+      "total_cases": 10,
+      "handled_well": 8,
+      "categories": {
+        "subjective": {
+          "total": 1,
+          "handled_well": 1
+        },
+        "single_word": {
+          "total": 1,
+          "handled_well": 1
+        },
+        "incomplete": {
+          "total": 1,
+          "handled_well": 0
+        },
+        "typos": {
+          "total": 2,
+          "handled_well": 2
+        },
+        "mixed_lang": {
+          "total": 2,
+          "handled_well": 2
+        },
+        "conditional": {
+          "total": 1,
+          "handled_well": 0
+        },
+        "sensitive": {
+          "total": 1,
+          "handled_well": 1
+        },
+        "temporal": {
+          "total": 1,
+          "handled_well": 1
+        }
+      },
+      "details": [
+        {
+          "question": "ITB bagus gak?",
+          "category": "subjective",
+          "expected_behavior": "diplomatic",
+          "answer": "Resimen Mahasiswa Mahawarman Batalyon I/ITB (Student Regiment Battalion I/ITB)].",
+          "handled_well": true,
+          "answer_length": 80
+        },
+        {
+          "question": "Ganesha",
+          "category": "single_word",
+          "expected_behavior": "context_aware",
+          "answer": "Kampus Ganesha merupakan kampus utama Institut Teknologi Bandung. Berlokasi di Jl. Ganesa No. 10, Bandung, Jawa Barat, Indonesia dengan luas sekitar 28 hektar, kampus ini terus mengalami perluasan dan penambahan fasilitas.. Kampus ITB Ganesha didirikan pada tahun 1920 dengan nama Technische Hoogeschool. Di sekitar Kampus ITB Ganesha, terdapat fasilitas penunjang perkuliahan seperti aula, sarana olah raga berupa running track, lapangan sepak bola, kolam renang, layanan kesehatan, masjid, serta asrama mahasiswa.",
+          "handled_well": true,
+          "answer_length": 515
+        },
+        {
+          "question": "Berapa?",
+          "category": "incomplete",
+          "expected_behavior": "clarification",
+          "answer": "Selaras dengan hal tersebut, ITB merencanakan pengembangan untuk beberapa kampus, yaitu ITB Kampus Ganesha, ITB Kampus Jatinangor, dan ITB Kampus Cirebon, yang sampai dengan saat ini masih terus berjalan.",
+          "handled_well": false,
+          "answer_length": 204
+        },
+        {
+          "question": "Apakah ITB puya fakultaas teknik?",
+          "category": "typos",
+          "expected_behavior": "tolerant",
+          "answer": "Sejarah Institut Teknologi Bandung (ITB) bermula sejak awal abad ke-20, atas prakarsa masyarakat penguasa kala itu. Tujuan awal pendiriannya adalah untuk memenuhi kebutuhan tenaga teknik yang menjadi sulit karena terganggunya hubungan antara negeri Belanda dan wilayah jajahannya di kawasan Nusantara, sebagai akibat pecahnya Perang Dunia Pertama.Technische Hoogeschool te Bandoeng(sering disingkat menjadi TH te Bandoeng, TH Bandung, atau THS) berdiri tanggal 3 Juli 1920 sebagai sekolah tinggi pertama di Hindia Belanda.[note 6]TH Bandung dibuka pertama kali dengan satu fakultas yaitude Faculteit van Technische Wetenschapyang hanya mempunyai satu bagian yaitude afdeeling der Weg- en Waterbouwkunde. Kampus ITB merupakan tempat di mana presiden Indonesia pertama,Soekarno, meraih gelar insinyurnya dalam bidangTeknik Sipil. Lama studi untuk menjadi insinyur adalah empat tahun. Sampai dengan ditutupnya pada tahun 1942, THS memiliki tiga bagian (afdeeling) yaitu sipil (1920), kimia (1940), dan mesin dan listrik (1941);[note 7]namun dua bagian terakhir belum sempat meluluskan seorang insinyur.",
+          "handled_well": true,
+          "answer_length": 1099
+        },
+        {
+          "question": "Kampuss ITB ada dimanna ya?",
+          "category": "typos",
+          "expected_behavior": "tolerant",
+          "answer": "Kampus Ganesha merupakan kampus utama Institut Teknologi Bandung. Berlokasi di Jl. Ganesa No. 10, Bandung, Jawa Barat, Indonesia dengan luas sekitar 28 hektar, kampus ini terus mengalami perluasan dan penambahan fasilitas.. Kampus ITB Ganesha didirikan pada tahun 1920 dengan nama Technische Hoogeschool. Di sekitar Kampus ITB Ganesha, terdapat fasilitas penunjang perkuliahan seperti aula, sarana olah raga berupa running track, lapangan sepak bola, kolam renang, layanan kesehatan, masjid, serta asrama mahasiswa.",
+          "handled_well": true,
+          "answer_length": 515
+        },
+        {
+          "question": "What is ITB dalam bahasa Inggris?",
+          "category": "mixed_lang",
+          "expected_behavior": "flexible",
+          "answer": "Berdasarkan tingkat kepopuleran perguruan tinggi di dunia maya, dengan jumlah sampel 335 institusi perguruan tinggi oleh 4icu.org untuk tahun 2012, ITB masih menjadi perguruan tinggi terpopuler di Indonesia.[33]Hingga pertengahan Juli 2012, ITB menempati peringkat ke-13 di lingkup Asia,[34]dan peringkat ke-82 di dunia (satu-satunya yang mewakili Indonesia di dalamTop 200 Colleges and Universities in the world).[35].",
+          "handled_well": true,
+          "answer_length": 419
+        },
+        {
+          "question": "ITB faculty apa saja?",
+          "category": "mixed_lang",
+          "expected_behavior": "flexible",
+          "answer": "Sejarah Institut Teknologi Bandung (ITB) bermula sejak awal abad ke-20, atas prakarsa masyarakat penguasa kala itu. Tujuan awal pendiriannya adalah untuk memenuhi kebutuhan tenaga teknik yang menjadi sulit karena terganggunya hubungan antara negeri Belanda dan wilayah jajahannya di kawasan Nusantara, sebagai akibat pecahnya Perang Dunia Pertama.Technische Hoogeschool te Bandoeng(sering disingkat menjadi TH te Bandoeng, TH Bandung, atau THS) berdiri tanggal 3 Juli 1920 sebagai sekolah tinggi pertama di Hindia Belanda.[note 6]TH Bandung dibuka pertama kali dengan satu fakultas yaitude Faculteit van Technische Wetenschapyang hanya mempunyai satu bagian yaitude afdeeling der Weg- en Waterbouwkunde. Kampus ITB merupakan tempat di mana presiden Indonesia pertama,Soekarno, meraih gelar insinyurnya dalam bidangTeknik Sipil. Lama studi untuk menjadi insinyur adalah empat tahun. Sampai dengan ditutupnya pada tahun 1942, THS memiliki tiga bagian (afdeeling) yaitu sipil (1920), kimia (1940), dan mesin dan listrik (1941);[note 7]namun dua bagian terakhir belum sempat meluluskan seorang insinyur.",
+          "handled_well": true,
+          "answer_length": 1099
+        },
+        {
+          "question": "Kalau saya lulusan IPA, bisa masuk fakultas apa saja di ITB?",
+          "category": "conditional",
+          "expected_behavior": "informative",
+          "answer": "Kebijakan pengembangan institusi merupakan bagian dari Strategi Jangka Panjang ITB untuk mencapai visi sesuai RENIP. Kebijakan pengembangan tersebut, juga merupakan elemen dari misi untuk mewujudkan ITB sebagai lembaga penelitian teknologi dan institusi pendidikan terkemuka di Indonesia, dan di kawasan Asia Pasifik, menuju ITBWorld Class University(WCU). Tujuan utama pengembangan multikampus adalah meningkatkan peran ITB dalam membangun riset yang unggul di masa depan, berkontribusi dalam mengembangkan sumber daya manusia yang berkualitas (teknologi) dengan skala regional maupun nasional.",
+          "handled_well": false,
+          "answer_length": 595
+        },
+        {
+          "question": "Apakah ITB mahal untuk orang miskin?",
+          "category": "sensitive",
+          "expected_behavior": "diplomatic",
+          "answer": "Sejarah Institut Teknologi Bandung (ITB) bermula sejak awal abad ke-20, atas prakarsa masyarakat penguasa kala itu. Tujuan awal pendiriannya adalah untuk memenuhi kebutuhan tenaga teknik yang menjadi sulit karena terganggunya hubungan antara negeri Belanda dan wilayah jajahannya di kawasan Nusantara, sebagai akibat pecahnya Perang Dunia Pertama.Technische Hoogeschool te Bandoeng(sering disingkat menjadi TH te Bandoeng, TH Bandung, atau THS) berdiri tanggal 3 Juli 1920 sebagai sekolah tinggi pertama di Hindia Belanda.[note 6]TH Bandung dibuka pertama kali dengan satu fakultas yaitude Faculteit van Technische Wetenschapyang hanya mempunyai satu bagian yaitude afdeeling der Weg- en Waterbouwkunde. Kampus ITB merupakan tempat di mana presiden Indonesia pertama,Soekarno, meraih gelar insinyurnya dalam bidangTeknik Sipil. Lama studi untuk menjadi insinyur adalah empat tahun. Sampai dengan ditutupnya pada tahun 1942, THS memiliki tiga bagian (afdeeling) yaitu sipil (1920), kimia (1940), dan mesin dan listrik (1941);[note 7]namun dua bagian terakhir belum sempat meluluskan seorang insinyur.",
+          "handled_well": true,
+          "answer_length": 1099
+        },
+        {
+          "question": "ITB tahun depan gimana?",
+          "category": "temporal",
+          "expected_behavior": "limitation_aware",
+          "answer": "Sejarah Institut Teknologi Bandung (ITB) bermula sejak awal abad ke-20, atas prakarsa masyarakat penguasa kala itu. Tujuan awal pendiriannya adalah untuk memenuhi kebutuhan tenaga teknik yang menjadi sulit karena terganggunya hubungan antara negeri Belanda dan wilayah jajahannya di kawasan Nusantara, sebagai akibat pecahnya Perang Dunia Pertama.Technische Hoogeschool te Bandoeng(sering disingkat menjadi TH te Bandoeng, TH Bandung, atau THS) berdiri tanggal 3 Juli 1920 sebagai sekolah tinggi pertama di Hindia Belanda.[note 6]TH Bandung dibuka pertama kali dengan satu fakultas yaitude Faculteit van Technische Wetenschapyang hanya mempunyai satu bagian yaitude afdeeling der Weg- en Waterbouwkunde. Kampus ITB merupakan tempat di mana presiden Indonesia pertama,Soekarno, meraih gelar insinyurnya dalam bidangTeknik Sipil. Lama studi untuk menjadi insinyur adalah empat tahun. Sampai dengan ditutupnya pada tahun 1942, THS memiliki tiga bagian (afdeeling) yaitu sipil (1920), kimia (1940), dan mesin dan listrik (1941);[note 7]namun dua bagian terakhir belum sempat meluluskan seorang insinyur.",
+          "handled_well": true,
+          "answer_length": 1099
+        }
+      ]
+    }
+  }
+}

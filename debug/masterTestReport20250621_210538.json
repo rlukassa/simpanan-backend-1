@@ -1,0 +1,326 @@
+{
+  "metadata": {
+    "timestamp": "2025-06-21T21:05:38.320469",
+    "test_duration_seconds": 0.12551665306091309,
+    "overall_performance": 93.33333333333333
+  },
+  "summary": {
+    "basic_test_success_rate": 100.0,
+    "comprehensive_test_success_rate": 80.0,
+    "edge_case_robustness_rate": 100.0,
+    "overall_average": 93.33333333333333
+  },
+  "detailed_results": {
+    "basic_test": {
+      "success_rate": 100.0,
+      "total_questions": 6,
+      "successful": 6,
+      "details": [
+        {
+          "question": "Apa itu ITB",
+          "answer": "Pemerintah melalui Mendikbud Daoed Joesoef menggulirkan konsepNormalisasi Kehidupan Kampus/Badan Koordinasi Kemahasiswaanyang lazim disingkat NKK/BKK. Dewan mahasiswa se-Indonesia dibubarkan dan kemahasiswaan diatur oleh pembantu rektor bidang kemahasiswaan melalui BKK. Mahasiswa menolak dengan keras BKK, dan tetap mengadakan pemilihan Ketua DeMa (Dewan Mahasiswa). Namun setiap Ketua DeMa terpilih, malam itu juga surat ancaman DO (Drop Out) sampai. Akibatnya tidak ada yang bersedia menjadi Ketua DeMa. Akhirnya mahasiswa ITB memutuskan membubarkan Dewan Mahasiswa dan membekukan DeMa ITB. Kemudian didirikan Badan Koordinasi (BAKOR) untuk mengkoordinasikan pergerakan. Sementara cita-cita DeMa diamanatkan kepada Himpunan-Himpunan sebagai kantung-kantung gerakan, dengan konsekuensi, kaderisasi ada di tingkat himpunan.",
+          "expected": [
+            "ITB",
+            "Institut",
+            "Teknologi",
+            "Bandung"
+          ],
+          "relevant": true,
+          "answer_length": 824
+        },
+        {
+          "question": "Kampus ITB dimana aja",
+          "answer": "Selaras dengan hal tersebut, ITB merencanakan pengembangan untuk beberapa kampus, yaitu ITB Kampus Ganesha, ITB Kampus Jatinangor, dan ITB Kampus Cirebon, yang sampai dengan saat ini masih terus berjalan.",
+          "expected": [
+            "Ganesha",
+            "Jatinangor",
+            "Cirebon"
+          ],
+          "relevant": true,
+          "answer_length": 204
+        },
+        {
+          "question": "Fakultas ITB",
+          "answer": "Fakultas dan Sekolah12. Sejarah Institut Teknologi Bandung (ITB) bermula sejak awal abad ke-20, atas prakarsa masyarakat penguasa kala itu. Tujuan awal pendiriannya adalah untuk memenuhi kebutuhan tenaga teknik yang menjadi sulit karena terganggunya hubungan antara negeri Belanda dan wilayah jajahannya di kawasan Nusantara, sebagai akibat pecahnya Perang Dunia Pertama.Technische Hoogeschool te Bandoeng(sering disingkat menjadi TH te Bandoeng, TH Bandung, atau THS) berdiri tanggal 3 Juli 1920 sebagai sekolah tinggi pertama di Hindia Belanda.[note 6]TH Bandung dibuka pertama kali dengan satu fakultas yaitude Faculteit van Technische Wetenschapyang hanya mempunyai satu bagian yaitude afdeeling der Weg- en Waterbouwkunde. Kampus ITB merupakan tempat di mana presiden Indonesia pertama,Soekarno, meraih gelar insinyurnya dalam bidangTeknik Sipil. Lama studi untuk menjadi insinyur adalah empat tahun. Sampai dengan ditutupnya pada tahun 1942, THS memiliki tiga bagian (afdeeling) yaitu sipil (1920), kimia (1940), dan mesin dan listrik (1941);[note 7]namun dua bagian terakhir belum sempat meluluskan seorang insinyur. Fakultas adalah unit pendidikan di ITB yang memiliki beberapa program studi (dulu departemen), baik di tingkat sarjana, magister, maupun doktor. Sementara itu, sekolah adalah unit pendidikan yang memiliki beberapa program studi dengan bidang keilmuan yang berdekatan.",
+          "expected": [
+            "fakultas",
+            "sekolah"
+          ],
+          "relevant": true,
+          "answer_length": 1391
+        },
+        {
+          "question": "ITB itu apa sih?",
+          "answer": "Pemerintah melalui Mendikbud Daoed Joesoef menggulirkan konsepNormalisasi Kehidupan Kampus/Badan Koordinasi Kemahasiswaanyang lazim disingkat NKK/BKK. Dewan mahasiswa se-Indonesia dibubarkan dan kemahasiswaan diatur oleh pembantu rektor bidang kemahasiswaan melalui BKK. Mahasiswa menolak dengan keras BKK, dan tetap mengadakan pemilihan Ketua DeMa (Dewan Mahasiswa). Namun setiap Ketua DeMa terpilih, malam itu juga surat ancaman DO (Drop Out) sampai. Akibatnya tidak ada yang bersedia menjadi Ketua DeMa. Akhirnya mahasiswa ITB memutuskan membubarkan Dewan Mahasiswa dan membekukan DeMa ITB. Kemudian didirikan Badan Koordinasi (BAKOR) untuk mengkoordinasikan pergerakan. Sementara cita-cita DeMa diamanatkan kepada Himpunan-Himpunan sebagai kantung-kantung gerakan, dengan konsekuensi, kaderisasi ada di tingkat himpunan.",
+          "expected": [
+            "ITB",
+            "Institut"
+          ],
+          "relevant": true,
+          "answer_length": 824
+        },
+        {
+          "question": "berapa fakultas di ITB",
+          "answer": "Sejarah Institut Teknologi Bandung (ITB) bermula sejak awal abad ke-20, atas prakarsa masyarakat penguasa kala itu. Tujuan awal pendiriannya adalah untuk memenuhi kebutuhan tenaga teknik yang menjadi sulit karena terganggunya hubungan antara negeri Belanda dan wilayah jajahannya di kawasan Nusantara, sebagai akibat pecahnya Perang Dunia Pertama.Technische Hoogeschool te Bandoeng(sering disingkat menjadi TH te Bandoeng, TH Bandung, atau THS) berdiri tanggal 3 Juli 1920 sebagai sekolah tinggi pertama di Hindia Belanda.[note 6]TH Bandung dibuka pertama kali dengan satu fakultas yaitude Faculteit van Technische Wetenschapyang hanya mempunyai satu bagian yaitude afdeeling der Weg- en Waterbouwkunde. Kampus ITB merupakan tempat di mana presiden Indonesia pertama,Soekarno, meraih gelar insinyurnya dalam bidangTeknik Sipil. Lama studi untuk menjadi insinyur adalah empat tahun. Sampai dengan ditutupnya pada tahun 1942, THS memiliki tiga bagian (afdeeling) yaitu sipil (1920), kimia (1940), dan mesin dan listrik (1941);[note 7]namun dua bagian terakhir belum sempat meluluskan seorang insinyur.",
+          "expected": [
+            "fakultas",
+            "jumlah"
+          ],
+          "relevant": true,
+          "answer_length": 1099
+        },
+        {
+          "question": "ada berapa fakultas di ITB",
+          "answer": "Secara administratif tidak ada perbedaan yang berarti antara fakultas dan sekolah; perbedaan fakultas dengan sekolah di ITB hanyalah sekadar terminologi. Keduanya dipimpin oleh seorang dekan dengan dibantu oleh 2 orang wakil dekan, yaitu wakil dekan bidang akademik dan wakil dekan bidang sumber daya.",
+          "expected": [
+            "fakultas",
+            "jumlah"
+          ],
+          "relevant": true,
+          "answer_length": 301
+        }
+      ]
+    },
+    "comprehensive_test": {
+      "success_rate": 80.0,
+      "average_score": 72.0,
+      "total_questions": 10,
+      "relevant_answers": 8,
+      "categories": {
+        "basic": {
+          "total": 3,
+          "relevant": 2,
+          "total_score": 200
+        },
+        "academic": {
+          "total": 2,
+          "relevant": 1,
+          "total_score": 80
+        },
+        "location": {
+          "total": 2,
+          "relevant": 2,
+          "total_score": 180
+        },
+        "history": {
+          "total": 1,
+          "relevant": 1,
+          "total_score": 100
+        },
+        "admission": {
+          "total": 1,
+          "relevant": 1,
+          "total_score": 80
+        },
+        "informal": {
+          "total": 1,
+          "relevant": 1,
+          "total_score": 80
+        }
+      },
+      "details": [
+        {
+          "question": "Apa itu ITB?",
+          "category": "basic",
+          "difficulty": "easy",
+          "answer": "Kemudian pada masa kemerdekaan Indonesia, pada bulan Agustus 1945, namanya diubah menjadiSekolah Tinggi Teknik Bandung(STT Bandung) yang membuka tiga bagian yaitu Bagian Bangunan Jalan dan Air, Bagian Kimia, dan Bagian Mesin dan Listrik dengan lama studi empat tahun. Pada tahun 1946, STT Bandung dipindahkan keYogyakartanamun karena serbuan tentara Belanda ke Yogyakarta, pada tanggal 19 Desember 1948 STT Bandung di Yogyakarta terpaksa ditutup. Beberapa waktu kemudian sekolah itu dibuka kembali pada tahun 1949 dengan hanya menyelenggarakan Bagian Sipil saja dan menjadi cikal bakal lahirnya Fakultas TeknikUniversitas Gadjah Mada.",
+          "relevant": false,
+          "score": 0
+        },
+        {
+          "question": "ITB didirikan kapan?",
+          "category": "basic",
+          "difficulty": "medium",
+          "answer": "Kampus Ganesha merupakan kampus utama Institut Teknologi Bandung. Berlokasi di Jl. Ganesa No. 10, Bandung, Jawa Barat, Indonesia dengan luas sekitar 28 hektar, kampus ini terus mengalami perluasan dan penambahan fasilitas.. Kampus ITB Ganesha didirikan pada tahun 1920 dengan nama Technische Hoogeschool. Di sekitar Kampus ITB Ganesha, terdapat fasilitas penunjang perkuliahan seperti aula, sarana olah raga berupa running track, lapangan sepak bola, kolam renang, layanan kesehatan, masjid, serta asrama mahasiswa.",
+          "relevant": true,
+          "score": 100
+        },
+        {
+          "question": "Siapa rektor ITB sekarang?",
+          "category": "basic",
+          "difficulty": "hard",
+          "answer": "Prof. Dr. Ir. Tatacipta Dirgantara, M.T., sebagai Rektor ITB Periode 2025-2030 yang melanjutkan kepemimpinan Prof. Reini Wirahadikusumah, Ph.D. sebagai rektor Institut Teknologi Bandung periode 2020-2025.",
+          "relevant": true,
+          "score": 100
+        },
+        {
+          "question": "Fakultas apa saja yang ada di ITB?",
+          "category": "academic",
+          "difficulty": "medium",
+          "answer": "Kemudian pada masa kemerdekaan Indonesia, pada bulan Agustus 1945, namanya diubah menjadiSekolah Tinggi Teknik Bandung(STT Bandung) yang membuka tiga bagian yaitu Bagian Bangunan Jalan dan Air, Bagian Kimia, dan Bagian Mesin dan Listrik dengan lama studi empat tahun. Pada tahun 1946, STT Bandung dipindahkan keYogyakartanamun karena serbuan tentara Belanda ke Yogyakarta, pada tanggal 19 Desember 1948 STT Bandung di Yogyakarta terpaksa ditutup. Beberapa waktu kemudian sekolah itu dibuka kembali pada tahun 1949 dengan hanya menyelenggarakan Bagian Sipil saja dan menjadi cikal bakal lahirnya Fakultas TeknikUniversitas Gadjah Mada.",
+          "relevant": false,
+          "score": 0
+        },
+        {
+          "question": "Berapa jumlah fakultas di ITB?",
+          "category": "academic",
+          "difficulty": "medium",
+          "answer": "Observatorium Bosscha adalah lembaga riset yang berada di bawah naungan Fakultas Matematika dan Ilmu Pengetahuan Alam ITB. Observatorium Bosscha merupakan observatorium tertua di Indonesia. Bersama-sama dengan Program Studi Astronomi, FMIPA ITB, Observatorium Bosscha menjadi pusat penelitian, pendidikan, dan pengembangan ilmu Astronomi di Indonesia.",
+          "relevant": true,
+          "score": 80
+        },
+        {
+          "question": "Kampus ITB ada dimana saja?",
+          "category": "location",
+          "difficulty": "easy",
+          "answer": "Selaras dengan hal tersebut, ITB merencanakan pengembangan untuk beberapa kampus, yaitu ITB Kampus Ganesha, ITB Kampus Jatinangor, dan ITB Kampus Cirebon, yang sampai dengan saat ini masih terus berjalan.",
+          "relevant": true,
+          "score": 80
+        },
+        {
+          "question": "ITB Bandung alamatnya dimana?",
+          "category": "location",
+          "difficulty": "easy",
+          "answer": "Institut Teknologi Bandung (ITB) sebagai Perguruan Tinggi Negeri Berbadan Hukum (PTN-BH) Indonesia, berkomitmen untuk aktif mengembangkan ilmu pengetahuan, teknologi, dan seni. ITB menetapkan Rencana Induk Pengembangan (RENIP) 2006-2025 sebagai landasan pengembangan institusi jangka panjang. Dokumen RENIP kemudian diturunkan ke dalam rencana lima tahunan yang disebut Rencana Strategis (RENSTRA) ITB.",
+          "relevant": true,
+          "score": 100
+        },
+        {
+          "question": "Sejarah ITB singkat",
+          "category": "history",
+          "difficulty": "medium",
+          "answer": "Kurun waktu sejarah pendirian ITB dapat dibagi dalam periode:. Sejarah Institut Teknologi Bandung (ITB) bermula sejak awal abad ke-20, atas prakarsa masyarakat penguasa kala itu. Tujuan awal pendiriannya adalah untuk memenuhi kebutuhan tenaga teknik yang menjadi sulit karena terganggunya hubungan antara negeri Belanda dan wilayah jajahannya di kawasan Nusantara, sebagai akibat pecahnya Perang Dunia Pertama.Technische Hoogeschool te Bandoeng(sering disingkat menjadi TH te Bandoeng, TH Bandung, atau THS) berdiri tanggal 3 Juli 1920 sebagai sekolah tinggi pertama di Hindia Belanda.[note 6]TH Bandung dibuka pertama kali dengan satu fakultas yaitude Faculteit van Technische Wetenschapyang hanya mempunyai satu bagian yaitude afdeeling der Weg- en Waterbouwkunde. Kampus ITB merupakan tempat di mana presiden Indonesia pertama,Soekarno, meraih gelar insinyurnya dalam bidangTeknik Sipil. Lama studi untuk menjadi insinyur adalah empat tahun. Sampai dengan ditutupnya pada tahun 1942, THS memiliki tiga bagian (afdeeling) yaitu sipil (1920), kimia (1940), dan mesin dan listrik (1941);[note 7]namun dua bagian terakhir belum sempat meluluskan seorang insinyur. ^Dies Natalis TH Bandung selalu diperingati setiap tahun sejak Dies Natalisnya yang pertama pada tahun 1921, hingga Dies Natalis ke-21 tahun 1941.[4]Bahkan setelah TH ditutup dan berganti nama sekalipun, Dies Natalisnya selalu mengacu pada berdirinya TH tahun 1920, seperti pada tanggal 27 November 1948 di mana diperingati Dies Natalis ke-28Faculteit van Technische Wetenschap van de Universiteit van Indonesie[5]atau pada tanggal 23 Desember 1955 di mana diadakan Lustrum ke-7 (Dies ke-35).[6]Dari fakta-fakta sejarah tersebut, tanggal 3 Juli 1920 ditetapkan sebagai tanggal pendirian Institut Teknologi Bandung dan diperingati setiap tahun sebagai\"Peringatan Ulang Tahun Perguruan/Pendidikan Tinggi Teknik di Indonesia\". Sedangkan tanggal 2 Maret 1959 ditetapkan sebagai tanggal peresmian nama Institut Teknologi di Kota Bandung dan diperingati setiap tahun sebagai\"Peringatan Ulang Tahun Institut Teknologi Bandung\"yang dituangkan dalam Keputusan Rektor ITB Nomor 267/SK/K01/OT/2008 tentang Pendirian dan Peresmian Nama ITB.",
+          "relevant": true,
+          "score": 100
+        },
+        {
+          "question": "Cara masuk ITB gimana?",
+          "category": "admission",
+          "difficulty": "medium",
+          "answer": "Di tataran nasional, menurut tingkat keketatan masuk SNMPTN/SBMPTN bidang Saintek (IPA) dan Soshum (IPS) dari tahun ke tahun, ITB merupakan perguruan tinggi dengan tingkat kesulitan tertinggi, dapat dilihat dari nilaipassing grademaupun nilai rata-rata ujian seleksi masuk perguruan tinggi negeri sebagaimana digambarkan dalam tabel berikut:.",
+          "relevant": true,
+          "score": 80
+        },
+        {
+          "question": "kampus itb dmn aja sih",
+          "category": "informal",
+          "difficulty": "medium",
+          "answer": "Selaras dengan hal tersebut, ITB merencanakan pengembangan untuk beberapa kampus, yaitu ITB Kampus Ganesha, ITB Kampus Jatinangor, dan ITB Kampus Cirebon, yang sampai dengan saat ini masih terus berjalan.",
+          "relevant": true,
+          "score": 80
+        }
+      ]
+    },
+    "edge_case_test": {
+      "robustness_rate": 100.0,
+      "total_cases": 10,
+      "handled_well": 10,
+      "categories": {
+        "subjective": {
+          "total": 1,
+          "handled_well": 1
+        },
+        "single_word": {
+          "total": 1,
+          "handled_well": 1
+        },
+        "incomplete": {
+          "total": 1,
+          "handled_well": 1
+        },
+        "typos": {
+          "total": 2,
+          "handled_well": 2
+        },
+        "mixed_lang": {
+          "total": 2,
+          "handled_well": 2
+        },
+        "conditional": {
+          "total": 1,
+          "handled_well": 1
+        },
+        "sensitive": {
+          "total": 1,
+          "handled_well": 1
+        },
+        "temporal": {
+          "total": 1,
+          "handled_well": 1
+        }
+      },
+      "details": [
+        {
+          "question": "ITB bagus gak?",
+          "category": "subjective",
+          "expected_behavior": "diplomatic",
+          "answer": "Institut Teknologi Bandung (ITB) sebagai Perguruan Tinggi Negeri Berbadan Hukum (PTN-BH) Indonesia, berkomitmen untuk aktif mengembangkan ilmu pengetahuan, teknologi, dan seni. ITB menetapkan Rencana Induk Pengembangan (RENIP) 2006-2025 sebagai landasan pengembangan institusi jangka panjang. Dokumen RENIP kemudian diturunkan ke dalam rencana lima tahunan yang disebut Rencana Strategis (RENSTRA) ITB.",
+          "handled_well": true,
+          "answer_length": 402
+        },
+        {
+          "question": "Ganesha",
+          "category": "single_word",
+          "expected_behavior": "context_aware",
+          "answer": "3.1ITB Kampus Ganesha. Kampus Ganesha merupakan kampus utama Institut Teknologi Bandung. Berlokasi di Jl. Ganesa No. 10, Bandung, Jawa Barat, Indonesia dengan luas sekitar 28 hektar, kampus ini terus mengalami perluasan dan penambahan fasilitas.. Kampus ITB Ganesha didirikan pada tahun 1920 dengan nama Technische Hoogeschool. Di sekitar Kampus ITB Ganesha, terdapat fasilitas penunjang perkuliahan seperti aula, sarana olah raga berupa running track, lapangan sepak bola, kolam renang, layanan kesehatan, masjid, serta asrama mahasiswa. Kampus Ganesha merupakan kampus utama Institut Teknologi Bandung yang berlokasi di Jl. Ganesa No. 10, Bandung, Jawa Barat. Kampus yang didirikan pada tahun 1920 ini memiliki lahan seluas 28 hektar dan terus mengalami perluasan.",
+          "handled_well": true,
+          "answer_length": 766
+        },
+        {
+          "question": "Berapa?",
+          "category": "incomplete",
+          "expected_behavior": "clarification",
+          "answer": "Maaf, saya tidak dapat menemukan informasi yang sesuai dengan pertanyaan Anda. Bisa Anda coba pertanyaan lain tentang ITB?",
+          "handled_well": true,
+          "answer_length": 122
+        },
+        {
+          "question": "Apakah ITB puya fakultaas teknik?",
+          "category": "typos",
+          "expected_behavior": "tolerant",
+          "answer": "Institut Teknologi Bandung (ITB) sebagai Perguruan Tinggi Negeri Berbadan Hukum (PTN-BH) Indonesia, berkomitmen untuk aktif mengembangkan ilmu pengetahuan, teknologi, dan seni. ITB menetapkan Rencana Induk Pengembangan (RENIP) 2006-2025 sebagai landasan pengembangan institusi jangka panjang. Dokumen RENIP kemudian diturunkan ke dalam rencana lima tahunan yang disebut Rencana Strategis (RENSTRA) ITB.",
+          "handled_well": true,
+          "answer_length": 402
+        },
+        {
+          "question": "Kampuss ITB ada dimanna ya?",
+          "category": "typos",
+          "expected_behavior": "tolerant",
+          "answer": "Secara administratif tidak ada perbedaan yang berarti antara fakultas dan sekolah; perbedaan fakultas dengan sekolah di ITB hanyalah sekadar terminologi. Keduanya dipimpin oleh seorang dekan dengan dibantu oleh 2 orang wakil dekan, yaitu wakil dekan bidang akademik dan wakil dekan bidang sumber daya.",
+          "handled_well": true,
+          "answer_length": 301
+        },
+        {
+          "question": "What is ITB dalam bahasa Inggris?",
+          "category": "mixed_lang",
+          "expected_behavior": "flexible",
+          "answer": "Institut Teknologi Bandung (ITB) sebagai Perguruan Tinggi Negeri Berbadan Hukum (PTN-BH) Indonesia, berkomitmen untuk aktif mengembangkan ilmu pengetahuan, teknologi, dan seni. ITB menetapkan Rencana Induk Pengembangan (RENIP) 2006-2025 sebagai landasan pengembangan institusi jangka panjang. Dokumen RENIP kemudian diturunkan ke dalam rencana lima tahunan yang disebut Rencana Strategis (RENSTRA) ITB.",
+          "handled_well": true,
+          "answer_length": 402
+        },
+        {
+          "question": "ITB faculty apa saja?",
+          "category": "mixed_lang",
+          "expected_behavior": "flexible",
+          "answer": "Institut Teknologi Bandung (ITB) sebagai Perguruan Tinggi Negeri Berbadan Hukum (PTN-BH) Indonesia, berkomitmen untuk aktif mengembangkan ilmu pengetahuan, teknologi, dan seni. ITB menetapkan Rencana Induk Pengembangan (RENIP) 2006-2025 sebagai landasan pengembangan institusi jangka panjang. Dokumen RENIP kemudian diturunkan ke dalam rencana lima tahunan yang disebut Rencana Strategis (RENSTRA) ITB.",
+          "handled_well": true,
+          "answer_length": 402
+        },
+        {
+          "question": "Kalau saya lulusan IPA, bisa masuk fakultas apa saja di ITB?",
+          "category": "conditional",
+          "expected_behavior": "informative",
+          "answer": "Kemudian pada masa kemerdekaan Indonesia, pada bulan Agustus 1945, namanya diubah menjadiSekolah Tinggi Teknik Bandung(STT Bandung) yang membuka tiga bagian yaitu Bagian Bangunan Jalan dan Air, Bagian Kimia, dan Bagian Mesin dan Listrik dengan lama studi empat tahun. Pada tahun 1946, STT Bandung dipindahkan keYogyakartanamun karena serbuan tentara Belanda ke Yogyakarta, pada tanggal 19 Desember 1948 STT Bandung di Yogyakarta terpaksa ditutup. Beberapa waktu kemudian sekolah itu dibuka kembali pada tahun 1949 dengan hanya menyelenggarakan Bagian Sipil saja dan menjadi cikal bakal lahirnya Fakultas TeknikUniversitas Gadjah Mada.",
+          "handled_well": true,
+          "answer_length": 634
+        },
+        {
+          "question": "Apakah ITB mahal untuk orang miskin?",
+          "category": "sensitive",
+          "expected_behavior": "diplomatic",
+          "answer": "9Keluarga mahasiswa ITB. Institut Teknologi Bandung (ITB) sebagai Perguruan Tinggi Negeri Berbadan Hukum (PTN-BH) Indonesia, berkomitmen untuk aktif mengembangkan ilmu pengetahuan, teknologi, dan seni. ITB menetapkan Rencana Induk Pengembangan (RENIP) 2006-2025 sebagai landasan pengembangan institusi jangka panjang. Dokumen RENIP kemudian diturunkan ke dalam rencana lima tahunan yang disebut Rencana Strategis (RENSTRA) ITB. Kebijakan pengembangan institusi merupakan bagian dari Strategi Jangka Panjang ITB untuk mencapai visi sesuai RENIP. Kebijakan pengembangan tersebut, juga merupakan elemen dari misi untuk mewujudkan ITB sebagai lembaga penelitian teknologi dan institusi pendidikan terkemuka di Indonesia, dan di kawasan Asia Pasifik, menuju ITBWorld Class University(WCU). Tujuan utama pengembangan multikampus adalah meningkatkan peran ITB dalam membangun riset yang unggul di masa depan, berkontribusi dalam mengembangkan sumber daya manusia yang berkualitas (teknologi) dengan skala regional maupun nasional.",
+          "handled_well": true,
+          "answer_length": 1023
+        },
+        {
+          "question": "ITB tahun depan gimana?",
+          "category": "temporal",
+          "expected_behavior": "limitation_aware",
+          "answer": "Kampus Ganesha merupakan kampus utama Institut Teknologi Bandung. Berlokasi di Jl. Ganesa No. 10, Bandung, Jawa Barat, Indonesia dengan luas sekitar 28 hektar, kampus ini terus mengalami perluasan dan penambahan fasilitas.. Kampus ITB Ganesha didirikan pada tahun 1920 dengan nama Technische Hoogeschool. Di sekitar Kampus ITB Ganesha, terdapat fasilitas penunjang perkuliahan seperti aula, sarana olah raga berupa running track, lapangan sepak bola, kolam renang, layanan kesehatan, masjid, serta asrama mahasiswa.",
+          "handled_well": true,
+          "answer_length": 515
+        }
+      ]
+    }
+  }
+}

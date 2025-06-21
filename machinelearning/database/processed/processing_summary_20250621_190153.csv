@@ -1,0 +1,2 @@
+processing_date,total_raw_records,total_processed_records,high_quality_records,quality_threshold,data_sources,categories_found,avg_quality_score,export_files
+2025-06-21 19:01:53,1368,1147,382,60,"multikampus, tentang, wikipedia","mahasiswa, sejarah, akademik, fasilitas, lainnya, lokasi, penelitian, umum, administrasi",74.3455497382199,../database/processed/itb_chatbot_high_quality_20250621_190153.csv; ../database/processed/itb_chatbot_complete_20250621_190153.csv
