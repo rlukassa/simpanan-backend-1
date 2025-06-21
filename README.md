@@ -86,6 +86,42 @@ Query vector vs Document vectors
 User Query → Preprocessing → Multi-Algorithm Matching → Response Ranking → Best Answer
 ```
 
+### ⚠️ **DISCLAIMER & LIMITATIONS**
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="400">
+</div>
+
+> **📌 Important Note:** Chatbot ini **BUKAN** seperti ChatGPT atau Large Language Model (LLM) pada umumnya!
+
+#### 🎯 **Perbedaan Fundamental:**
+
+| **ITB Chatbot** | **ChatGPT/LLM** |
+|-----------------|------------------|
+| 🔍 **Rule-based + String Matching** | 🧠 **Neural Network Generation** |
+| 📊 **Pre-defined Dataset** (382 entries) | 🌐 **Massive Training Data** (Billions) |
+| 🎯 **Specific Domain** (ITB only) | 🌍 **General Knowledge** |
+| ⚡ **Fast & Deterministic** | 🤔 **Creative but Unpredictable** |
+| 💾 **Lightweight** (~50MB) | 🏗️ **Resource Heavy** (GBs) |
+
+#### 🚫 **Keterbatasan Utama:**
+
+- **📚 Limited Knowledge**: Hanya tahu tentang ITB berdasarkan dataset yang tersedia
+- **🤖 No Conversation Context**: Tidak mengingat percakapan sebelumnya
+- **❌ No Creative Generation**: Tidak bisa membuat jawaban baru, hanya matching dari database
+- **🎯 Domain Specific**: Tidak bisa menjawab pertanyaan di luar topik ITB
+- **📝 Static Responses**: Jawaban terbatas pada data yang sudah diproses
+
+#### ✅ **Keunggulan:**
+
+- **⚡ Ultra Fast**: Response time < 1 detik vs 5-10 detik ChatGPT
+- **🎯 High Accuracy**: 76.7% untuk domain ITB vs general LLM yang mungkin hallucination
+- **💰 Cost Effective**: Tidak butuh API subscription atau cloud computing
+- **🔒 Privacy**: Data tidak dikirim ke server eksternal
+- **📱 Offline Ready**: Bisa jalan tanpa internet connection
+
+> **🎓 Academic Purpose:** Chatbot ini dibuat untuk mendemonstrasikan implementasi algoritma string matching dan fuzzy matching dalam konteks NLP, bukan untuk menggantikan general-purpose AI assistant.
+
 ---
 
 ## 💻 **TECH STACK**
