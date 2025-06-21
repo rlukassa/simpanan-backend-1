@@ -1,7 +1,7 @@
 <div align="center">
 
 # 🤖✨ **ITB CHATBOT** ✨🤖
-### *Advanced Fuzzy Matching with Neon Intelligence*
+### *Implementasi Normalisasi Teks, Regex, dan Algoritma String Matching dalam Chatbot Informasi Khusus Institut Teknologi Bandung untuk Sistem Deteksi Intent Pengguna*
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=35&duration=3000&pause=500&color=00FFFF&center=true&vCenter=true&multiline=true&width=800&height=100&lines=%F0%9F%9A%80+INTELLIGENT+CHATBOT;%E2%9A%A1+FUZZY+MATCHING+POWER;%F0%9F%92%8E+NEON+TECH+STACK" alt="Typing SVG" />
 
