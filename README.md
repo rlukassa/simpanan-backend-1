@@ -424,8 +424,8 @@ python debug/testDirectMatching.py
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
-**Made with 💖 and ⚡ by ITB Chatbot Team**
+**Made with ⚡ by Lukas Raja Agripa | 13523158 | ITB - Informatika**
 
-*Powered by Advanced Fuzzy Matching & Neon Technology*
+**Licensed under the [MIT License](LICENSE).**
 
 </div>
