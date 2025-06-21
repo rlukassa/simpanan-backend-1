@@ -1,0 +1,161 @@
+Alur Sistem 
+
+User ➝ Frontend ➝ Backend/API ➝ Modul ML (Preprocessing + Matching + Intent Classifier) ➝ Backend ➝ Frontend ➝ User
+
+
+User Journey
+
+User mengakses halaman chatbot (via browser)
+ ➤ Tampilan user interface yang menampilkan form/chatbox pertanyaan.
+
+
+User mengetik pertanyaan
+ ➤ Contoh: "Apa saja jurusan di ITB?"
+
+
+Frontend mengirim pertanyaan ke Backend (API endpoint /ask)
+ ➤ Dengan axios atau fetch, pertanyaan dikirim ke server via HTTP POST.
+
+
+Backend menerima pertanyaan & panggil service intent detection
+
+
+Memanggil fungsi di intent_service.py:
+
+
+✂️ Preprocessing: case folding, hapus tanda baca, stemming, dsb.
+
+
+🔍 Matching: menggunakan KMP/BM atau Jaccard similarity dengan data intent.
+
+
+(Opsional) 🔤 Intent classifier: jika pakai model machine learning.
+
+
+Backend mencocokkan pertanyaan user dengan basis intent
+ ➤ Misalnya pertanyaan cocok dengan intent "info_program_studi".
+
+
+Backend mengembalikan respon ke frontend
+ ➤ Respon berupa: "Di ITB, terdapat 12 fakultas dan sekolah, antara lain STEI, FTSL, SITH, dll."
+
+
+Frontend menampilkan balasan di chatbox
+ ➤ Seolah-olah chatbot menjawab seperti manusia.
+
+
+
+⚙️ DETAIL ALUR SISTEM (Langkah demi Langkah Teknis)
+1. Frontend (React atau HTML/JS biasa)
+Menyediakan UI untuk input pertanyaan dan menampilkan balasan.
+
+
+File terkait: frontend/src/App.jsx, components/ChatBox.jsx.
+
+
+2. Backend (Flask atau FastAPI)
+API menerima request /ask dari frontend.
+
+
+Panggil intent_service.py → hasilkan intent & jawaban.
+
+
+3. Preprocessing
+File: machinelearning/preprocessing.py
+
+
+Proses:
+
+
+Case folding
+
+
+Tokenizing
+
+
+Stopword removal
+
+
+Stemming (misal: "perguruan" → "guru")
+
+
+4. Intent Matching
+File: machinelearning/string_matching.py
+
+
+Metode:
+
+
+Exact match (simple)
+
+
+KMP / BM / Jaccard Similarity
+
+
+Bandingkan kalimat user dengan dataset intents.json
+
+
+5. Klasifikasi Intent (Opsional)
+File: machinelearning/intent_classifier.py
+
+
+Algoritma:
+
+
+TF-IDF + Naive Bayes / SVM
+
+
+Model dilatih dari dataset pertanyaan-intent
+
+
+6. Response Selection
+Setelah intent ditemukan, ambil jawaban dari file intents.json atau faq.csv
+
+
+Bisa juga disimpan dalam database ringan (JSON/CSV)
+
+
+
+🧪 CONTOH ILUSTRASI
+Misalnya pertanyaan:
+sql
+SalinEdit
+User: "Jurusan apa aja di ITB?"
+
+Langkah pemrosesan:
+➤ Preprocessing:
+
+
+Normalisasi: "jurusan itb"
+
+
+➤ Matching:
+
+
+Dicocokkan dengan intent: "info_program_studi"
+
+
+➤ Intent ditemukan → info_program_studi
+
+
+➤ Balasan dipilih → "ITB memiliki beberapa jurusan seperti Teknik Informatika, Arsitektur, dll"
+
+
+➤ Balasan dikirim ke frontend dan ditampilkan ke user
+
+
+
+🧩 SISTEM BISA DIKEMBANGKAN KE:
+Sistem fallback: jika intent tidak dikenali, balas "Maaf, pertanyaan kamu belum bisa saya pahami."
+
+
+Sistem tanya balik: chatbot bisa minta klarifikasi.
+
+
+Feedback pengguna: user bisa menilai apakah jawaban membantu atau tidak.
+
+
+History-based matching: pertanyaan sebelumnya disimpan dan digunakan untuk konteks 
+Threshold tweaking: jika similarity rendah, tampilkan beberapa opsi atau bilang "tidak tahu" 
+Mencari kata yang serupa (bukan fuzzy matching kata, tapi misalkan : dari kata aku, dengan saya)
+

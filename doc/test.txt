@@ -1,0 +1,88 @@
+Volume serial number is 42FF-425F
+C:.
+│   .gitignore
+│   eslint.config.js
+│   exclude.txt
+│   index.html
+│   package-lock.json
+│   package.json
+│   README.md
+│   requirement.txt
+│   vite.config.js
+│
+├───backend
+│   │   app.py
+│   │   Dockerfile
+│   │   __init__.py
+│   │
+│   ├───controller
+│   │       controller.py
+│   │       __init__.py
+│   │
+│   ├───models
+│   │       models.py
+│   │       __init__.py
+│   │
+│   ├───routes
+│   │       routes.py
+│   │       __init__.py
+│   │
+│   └───services
+│           services.py
+│           __init__.py
+│
+├───frontend
+│   │   Dockerfile
+│   │
+│   ├───public
+│   │       vite.svg
+│   │
+│   └───src
+│       │   App.css
+│       │   App.jsx
+│       │   index.css
+│       │   main.jsx
+│       │
+│       ├───assets
+│       │       react.svg
+│       │
+│       ├───components
+│       │       Chatbox.jsx
+│       │       InputField.jsx
+│       │       QueryButton.jsx
+│       │
+│       ├───middleware
+│       ├───services
+│       │       apicall.jsx
+│       │
+│       └───utils
+└───machinelearning
+    │   algorithm.py
+    │   intentClassifier.py
+    │   matching.py
+    │   preprocessing.py
+    │
+    ├───database
+    │   ├───data
+    │   │       event_itb.csv
+    │   │       hasilseleksi_itb.csv
+    │   │       multikampus_full.csv
+    │   │       tentang_itb_full.csv
+    │   │       wikipedia_itb_full.csv
+    │   │
+    │   └───scrapper
+    │           chromedriver.exe
+    │           event_scrapper.py
+    │           event_scrapper_selenium.py
+    │           info_scrapper.py
+    │           itb.py
+    │           multikampus_scrapper.py
+    │           scrapper.py
+    │           tentang_itb_scrapper.py
+    │           wikipedia_itb_scrapper.py
+    │
+    └───jupyter
+            chatbot.ipynb
+            explore.ipynb
+
+PS C:\Users\MSI\Desktop\makalah_stima\Makalah_Chatbot>
