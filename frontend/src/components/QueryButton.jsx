@@ -1,13 +1,14 @@
 import React from 'react'
 
-const QueryButton = ({ onClick }) => {
+const QueryButton = ({ onClick, disabled = false }) => {
   return (
     <button
       className="query-button"
       onClick={onClick}
-      style={{padding: '10px 20px', borderRadius: '8px', background: '#2563eb', color: 'white', border: 'none', cursor: 'pointer'}}
+      disabled={disabled}
     >
-      Kirim
+      <span>Kirim</span>
+      <span style={{ marginLeft: '0.5rem' }}>→</span>
     </button>
   )
 }

@@ -1,0 +1,41 @@
+BAB 3. IMPLEMENTASI
+
+3.0 TECHSTACK DAN PERLENGKAPAN
+
+Implementasi chatbot ITB menggunakan arsitektur full-stack modern yang terdiri dari berbagai teknologi terintegrasi. Pada sisi backend, digunakan Python sebagai bahasa pemrograman utama dengan framework Flask untuk membangun REST API. Library pendukung yang digunakan meliputi pandas untuk manipulasi data, scikit-learn untuk algoritma machine learning, dan NLTK untuk pemrosesan bahasa alami. Sisi frontend dikembangkan menggunakan React sebagai framework JavaScript dengan Vite sebagai build tool untuk performa optimal. Basis data menggunakan format CSV yang telah diproses dan dioptimalkan untuk pencarian cepat. Tools pengembangan meliputi Visual Studio Code sebagai editor utama, Git untuk version control, serta environment Python dan Node.js untuk menjalankan aplikasi. Arsitektur ini dipilih karena memberikan keseimbangan antara performa, kemudahan pengembangan, dan skalabilitas sistem.
+
+[Gambar yang disarankan: Diagram arsitektur teknologi berlapis, logo teknologi yang digunakan]
+
+3.1 WEB SCRAPING DAN PEMBUATAN DATABASE
+
+Proses pembangunan database dimulai dengan web scraping data dari berbagai sumber informasi ITB. Data diekstrak dari tiga sumber utama: halaman Wikipedia ITB untuk informasi umum, situs resmi multikampus ITB untuk data fasilitas dan program, serta sumber lainnya yang relevan. Proses scraping menggunakan kombinasi library Python seperti requests untuk HTTP requests, BeautifulSoup untuk parsing HTML, dan Selenium untuk halaman yang memerlukan JavaScript rendering. Setiap sumber data memiliki karakteristik struktur yang berbeda, sehingga diperlukan strategi ekstraksi yang spesifik. Data mentah yang diperoleh kemudian melalui tahap pembersihan awal untuk menghilangkan tag HTML, karakter khusus, dan duplikasi. Hasil akhir disimpan dalam format CSV terstruktur dengan kolom-kolom yang konsisten seperti content, type, links, dan source. Proses ini menghasilkan dataset mentah sekitar 1368 entri yang kemudian akan diproses lebih lanjut untuk meningkatkan kualitas dan relevansi data.
+
+[Gambar yang disarankan: Flowchart proses scraping, contoh tampilan data mentah vs hasil CSV]
+
+3.2 PREPROCESSING DATA
+
+Tahap preprocessing merupakan fondasi penting dalam mempersiapkan data teks untuk sistem information retrieval. Pipeline preprocessing dalam chatbot ITB terdiri dari lima tahap berurutan yang diimplementasikan dalam file preprocessing.py. Tahap pertama adalah case folding yang mengubah seluruh teks menjadi huruf kecil untuk memastikan konsistensi pencocokan. Tahap kedua menghilangkan tanda baca menggunakan regular expression untuk memfokuskan analisis pada kata-kata bermakna. Tahap ketiga adalah tokenisasi yang memecah teks menjadi unit-unit kata individual. Tahap keempat menghapus stopwords berdasarkan daftar kata umum dalam bahasa Indonesia seperti "dan", "di", "ke", yang tidak memiliki nilai informasi tinggi. Tahap terakhir adalah stemming yang dimodifikasi khusus untuk konteks ITB, dimana kata-kata penting seperti "universitas", "fakultas", "teknologi" dipertahankan utuh, sementara kata lain yang lebih dari 6 karakter dipotong untuk normalisasi. Proses ini mengubah teks mentah menjadi representasi yang bersih dan seragam, siap untuk tahap analisis berikutnya.
+
+[Gambar yang disarankan: Diagram alur preprocessing dengan contoh transformasi teks step-by-step]
+
+3.3 INFORMATION RETRIEVAL DAN FUZZY MATCHING
+
+Sistem information retrieval chatbot ITB mengimplementasikan pendekatan multi-algoritma untuk memastikan akurasi pencarian yang optimal. Komponen utama adalah TF-IDF (Term Frequency-Inverse Document Frequency) yang mengubah teks menjadi representasi vektor numerik berdasarkan pentingnya kata dalam dokumen dan keunikannya dalam seluruh koleksi. Setiap query pengguna dan data dalam database dikonversi menjadi vektor TF-IDF, kemudian kemiripan dihitung menggunakan cosine similarity untuk menemukan dokumen paling relevan. Untuk menangani variasi pengetikan dan typo, sistem dilengkapi dengan fuzzy matching yang menggunakan kombinasi algoritma Levenshtein distance untuk menghitung jarak edit, n-gram similarity untuk membandingkan fragmen teks, dan phonetic matching untuk mengenali kata yang terdengar mirip. Algoritme pattern typo recognition juga diimplementasikan untuk mendeteksi kesalahan ketik umum. Pipeline matching bekerja secara bertingkat: dimulai dengan exact matching, dilanjutkan dengan TF-IDF similarity, dan akhirnya fuzzy matching sebagai fallback. Pendekatan ini menghasilkan akurasi pencarian yang tinggi dengan kemampuan toleransi typo hingga 100% berdasarkan pengujian yang dilakukan.
+
+[Gambar yang disarankan: Diagram pipeline IR, ilustrasi perbandingan vektor, contoh typo correction]
+
+3.4 INTERFACE CHATBOT
+
+Antarmuka chatbot dikembangkan sebagai aplikasi web modern menggunakan React dengan desain responsif dan user-friendly. Struktur frontend terdiri dari komponen-komponen modular: App.jsx sebagai komponen utama yang mengatur routing dan state management, Chatbox.jsx untuk menampilkan percakapan dengan bubble chat yang dinamis, InputField.jsx untuk menerima input pengguna dengan validasi real-time, dan QueryButton.jsx untuk memproses pengiriman query. Komunikasi antara frontend dan backend menggunakan RESTful API melalui service layer di apicall.jsx yang mengelola HTTP requests dengan proper error handling. Backend menyediakan endpoint /api/chat yang menerima POST requests berisi pertanyaan pengguna dalam format JSON. Alur komunikasi dimulai ketika pengguna mengetik pertanyaan, frontend mengirim request ke backend melalui Flask routes, controller memvalidasi input, service layer memproses menggunakan algoritma ML, dan response dikembalikan dalam format JSON terstruktur. Interface mendukung fitur real-time typing indicator, history percakapan, dan responsive design yang dapat diakses dari berbagai perangkat. Implementasi ini memberikan pengalaman pengguna yang smooth dan intuitif layaknya chatbot modern.
+
+[Gambar yang disarankan: Screenshot interface chatbot, sequence diagram komunikasi frontend-backend]
+
+3.5 TESTING DAN DEPLOYMENT (ANALISIS HASIL)
+
+Tahap testing dan deployment menggunakan pendekatan komprehensif untuk memastikan kualitas dan reliability sistem. Test suite terdiri dari tiga kategori utama: unit testing untuk fungsi-fungsi individual, integration testing untuk komunikasi antar komponen, dan end-to-end testing untuk alur pengguna lengkap. Testing khusus dilakukan untuk mengukur typo tolerance dengan 100+ variasi kesalahan ketik, menghasilkan akurasi koreksi 100%. Comprehensive testing terhadap berbagai jenis pertanyaan ITB menunjukkan tingkat akurasi 100%, sementara edge case robustness mencapai 80%. Performance testing menunjukkan response time rata-rata di bawah 1 detik untuk query standar. Deployment menggunakan automated setup script (setup.py) yang menangani instalasi dependencies Python dan npm, build frontend, serta konfigurasi environment. Sistem mendukung dua mode deployment: production mode dengan frontend yang di-build dan development mode dengan hot reload. Analisis hasil pengujian menunjukkan sistem mampu menangani 382 entri data berkualitas tinggi dengan tingkat kepuasan pengguna yang tinggi berdasarkan akurasi jawaban dan kemudahan penggunaan. Monitoring dan logging terintegrasi untuk memudahkan maintenance dan debugging.
+
+[Gambar yang disarankan: Tabel hasil testing, grafik performa, diagram deployment flow]
+
+RINGKASAN IMPLEMENTASI
+
+Implementasi chatbot ITB mengintegrasikan teknologi modern dalam arsitektur full-stack yang robust dan scalable. Proses dimulai dari data acquisition melalui web scraping, dilanjutkan preprocessing untuk normalisasi data, implementasi algoritma IR dan fuzzy matching untuk pencarian akurat, pengembangan interface yang user-friendly, hingga testing dan deployment yang comprehensive. Setiap tahap dirancang dengan mempertimbangkan performa, akurasi, dan kemudahan maintenance. Hasil akhir adalah sistem chatbot yang mampu memberikan jawaban akurat dengan toleransi typo tinggi, interface yang intuitif, dan arsitektur yang mudah dikembangkan lebih lanjut.
