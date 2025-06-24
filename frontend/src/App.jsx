@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import './assets/App.css'
 
+import logoItb from './assets/Logo_Institut_Teknologi_Bandung.svg'
+
+
 import Chatbox from './components/Chatbox'
 import InputField from './components/InputField'
 import QueryButton from './components/QueryButton'
@@ -38,10 +41,12 @@ function App() {
       handleSend()
     }
   }
-
   return (
-    <div className="main-chat-container">
-      <h1>🎓 Chatbot ITB</h1>      <div className="chatbox-section">
+    <div className="main-chat-container">      <div className="header-section">
+        <img src={logoItb} alt="Logo ITB" className="itb-logo" />
+        <h1>Chatbot ITB</h1>
+      </div>
+      <div className="chatbox-section">
         <Chatbox messages={messages} isLoading={isLoading} />
       </div>
       <div className="input-section">
