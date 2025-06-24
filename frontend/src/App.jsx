@@ -62,7 +62,7 @@ function App() {
       </div>
       
       <div className="copyright-footer">
-        © 2025 Institut Teknologi Bandung - Chatbot Informasi
+        © 2025 rlukassa - All Rights Reserved
       </div>
     </div>
   )
