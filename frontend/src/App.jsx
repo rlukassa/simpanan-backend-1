@@ -1,55 +1,54 @@
-import { useState } from 'react'
-import './assets/App.css'
+import { useState } from 'react' // hook state react
+import './assets/App.css' // import css styles
 
-import logoItb from './assets/Logo_Institut_Teknologi_Bandung.svg'
+import logoItb from './assets/Logo_Institut_Teknologi_Bandung.svg' // logo itb
 
 
-import Chatbox from './components/Chatbox'
-import InputField from './components/InputField'
-import QueryButton from './components/QueryButton'
-import { askToBackend } from './services/apicall'
+import Chatbox from './components/Chatbox' // komponen chatbox
+import InputField from './components/InputField' // komponen input field
+import QueryButton from './components/QueryButton' // komponen query button
+import { askToBackend } from './services/apicall' // api call service
 
-function App() {
-  const [messages, setMessages] = useState([])
-  const [input, setInput] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
+function App() { // komponen utama app
+  const [messages, setMessages] = useState([]) // state messages
+  const [input, setInput] = useState("") // state input text
+  const [isLoading, setIsLoading] = useState(false) // state loading
 
-  const handleSend = async () => {
-    if (input.trim() === "" || isLoading) return
+  const handleSend = async () => { // handler kirim pesan
+    if (input.trim() === "" || isLoading) return // skip kalo kosong atau loading
     
-    const userMessage = input.trim()
-    setMessages(prev => [...prev, { from: 'user', text: userMessage }])
-    setInput("")
-    setIsLoading(true)
+    const userMessage = input.trim() // ambil user message
+    setMessages(prev => [...prev, { from: 'user', text: userMessage }]) // tambah user message
+    setInput("") // clear input
+    setIsLoading(true) // set loading true
     
     try {
-      const data = await askToBackend(userMessage)
-      setMessages(prev => [...prev, { from: 'bot', text: data.answer }])
+      const data = await askToBackend(userMessage) // panggil backend
+      setMessages(prev => [...prev, { from: 'bot', text: data.answer }]) // tambah bot response
     } catch (err) {
-      setMessages(prev => [...prev, { 
+      setMessages(prev => [...prev, { // tambah error message
         from: 'bot', 
-        text: 'Maaf, terjadi kesalahan saat menghubungi server. Silakan coba lagi.' 
+        text: 'Maaf, terjadi kesalahan saat menghubungi server. Silakan coba lagi.' // pesan error
       }])
     } finally {
-      setIsLoading(false)
+      setIsLoading(false) // set loading false
     }
   }
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault()
-      handleSend()
-    }
-  }
+  const handleKeyDown = (e) => { // handler keydown
+    if (e.key === 'Enter' && !e.shiftKey) { // enter tanpa shift
+      e.preventDefault() // prevent default
+      handleSend() // kirim pesan
+    }  }
   return (
-    <div className="main-chat-container">      <div className="header-section">
-        <img src={logoItb} alt="Logo ITB" className="itb-logo" />
-        <h1>Chatbot ITB</h1>
+    <div className="main-chat-container"> {/* container utama chat */}
+      <div className="header-section"> {/* section header */}
+        <img src={logoItb} alt="Logo ITB" className="itb-logo" /> {/* logo itb */}
+        <h1>Chatbot ITB</h1> {/* judul chatbot */}
       </div>
-      <div className="chatbox-section">
-        <Chatbox messages={messages} isLoading={isLoading} />
-      </div>
-      <div className="input-section">
+      <div className="chatbox-section"> {/* section chatbox */}
+        <Chatbox messages={messages} isLoading={isLoading} /> {/* komponen chatbox */}
+      </div>      <div className="input-section"> {/* section input */}
         <InputField 
           value={input} 
           onChange={(e) => setInput(e.target.value)} 
@@ -61,8 +60,8 @@ function App() {
         />
       </div>
       
-      <div className="copyright-footer">
-        © 2025 rlukassa - All Rights Reserved
+      <div className="copyright-footer"> {/* footer copyright */}
+        © 2025 rlukassa - All Rights Reserved {/* text copyright */}
       </div>
     </div>
   )

@@ -1,78 +1,60 @@
-# Logika layanan backend (memanggil fungsi ML/matching) 
-# Memanggil modul algorithm / intentClassifier
-# 
-# UPDATE AFTER CLEANUP (Dec 2024):
-# - Removed references to deleted intentClassifier module
-# - Updated imports to use cleaned-up module structure
-# - Improved error handling and debugging
-# - Uses matchIntent function from matching.py as primary method
-# - Fallback to match_with_csv_data if needed
-# - Added source field to response for better tracking
+# Business Logic Service Layer
+import sys  # Sistem parameter untuk path
+import os   # Interface OS untuk file path
 
-import sys
-import os
+rootPath = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))  # Dapatkan path root project
+if rootPath not in sys.path:  # Cek apakah path sudah ada
+    sys.path.append(rootPath)  # Tambah ke Python path
 
-# Tambahkan path ke root project agar bisa import machinelearning
-root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-if root_path not in sys.path:
-    sys.path.append(root_path)
-
-def detectIntentService(question):
-    """
-    Menerima pertanyaan user, melakukan preprocessing, matching, dan intent classification,
-    lalu mengembalikan intent dan jawaban.
-    """
-    # Import modul yang diperlukan setelah cleanup
-    try:
-        from machinelearning import matching
-        from machinelearning import preprocessing
-        from machinelearning import algorithm
-    except ImportError as e:
-        print(f"DEBUG: Import error = {e}")
-        return {
+def detectIntentService(userQuestion):  # Fungsi utama deteksi intent
+    try:  # Coba import modul ML
+        from machinelearning import matching  # Import algoritma matching
+        from machinelearning import preprocessing  # Import text preprocessing
+        from machinelearning import algorithm  # Import orchestrator
+    except ImportError as importError:  # Tangkap error import
+        print(f"DEBUG: Import gagal = {importError}")  # Log error
+        return {  # Return fallback response
             "intent": None,
-            "answer": "Maaf, sistem sedang mengalami masalah. Silakan coba lagi nanti."
+            "answer": "Maaf, sistem bermasalah. Coba lagi nanti.",
+            "source": "import_error"
         }
 
-    # 1. Preprocessing teks
-    try:
-        if hasattr(preprocessing, 'preprocess'):
-            clean_text = preprocessing.preprocess(question)
-            print(f"DEBUG: Preprocessed text = {clean_text}")
-        else:
-            clean_text = question
-    except Exception as e:
-        print(f"DEBUG: Preprocessing error = {e}")
-        clean_text = question
+    try:  # Coba preprocessing text
+        if hasattr(preprocessing, 'preprocess'):  # Cek fungsi ada
+            cleanedText = preprocessing.preprocess(userQuestion)  # Bersihkan text
+            print(f"DEBUG: '{userQuestion}' → '{cleanedText}'")  # Log hasil
+        else:  # Jika preprocess tidak ada
+            cleanedText = userQuestion  # Pakai text asli
+    except Exception as preprocessError:  # Tangkap error preprocessing
+        print(f"DEBUG: Preprocessing gagal = {preprocessError}")  # Log error
+        cleanedText = userQuestion  # Fallback ke text asli
 
-    # 2. Matching menggunakan algoritma yang tersedia
-    try:
-        # Gunakan fungsi matchIntent dari matching.py
-        if hasattr(matching, 'matchIntent'):
-            matched_result = matching.matchIntent(question)
-            print(f"DEBUG: Matching result = {matched_result}")
-        # Alternatif: gunakan match_with_csv_data
-        elif hasattr(matching, 'match_with_csv_data'):
-            matched_result = matching.match_with_csv_data(question, threshold=0.3, top_k=1)
-            print(f"DEBUG: CSV matching result = {matched_result}")
-        else:
-            print("DEBUG: No matching function found")
-            matched_result = None
-    except Exception as e:
-        print(f"DEBUG: Matching error = {e}")
-        matched_result = None
+    try:  # Coba matching intent
+        if hasattr(matching, 'matchIntent'):  # Cek fungsi matchIntent ada
+            matchedResult = matching.matchIntent(userQuestion)  # Cari match
+            print(f"DEBUG: Match = {matchedResult[:100] if matchedResult else 'None'}...")  # Log hasil
+        elif hasattr(matching, 'match_with_csv_data'):  # Alternatif fungsi
+            matchedResult = matching.match_with_csv_data(userQuestion, threshold=0.3, topK=1)  # Match CSV
+            print(f"DEBUG: CSV match = {matchedResult[:100] if matchedResult else 'None'}...")  # Log hasil
+        else:  # Tidak ada fungsi matching
+            print("DEBUG: Tidak ada fungsi matching")  # Log info
+            matchedResult = None  # Set None
+    except Exception as matchingError:  # Tangkap error matching
+        print(f"DEBUG: Matching gagal = {matchingError}")  # Log error
+        matchedResult = None  # Set None
 
-    # 3. Format respons
-    if matched_result:
-        return {
+    if matchedResult and len(str(matchedResult).strip()) > 0:  # Cek hasil valid
+        return {  # Return sukses
             "intent": "found",
-            "answer": matched_result,
-            "source": "machine_learning"
+            "answer": str(matchedResult).strip(),
+            "source": "machine_learning",
+            "processedQuery": cleanedText
         }
-    else:
-        return {
+    else:  # Tidak ada hasil
+        return {  # Return tidak ditemukan
             "intent": "not_found",
-            "answer": "Maaf, saya belum bisa menjawab pertanyaan tersebut. Silakan coba dengan kata kunci yang berbeda.",
-            "source": "fallback"
+            "answer": "Maaf, belum bisa jawab. Coba kata kunci lain seperti 'fakultas', 'jurusan', 'akreditas'.",
+            "source": "fallback",
+            "processedQuery": cleanedText
         }
 

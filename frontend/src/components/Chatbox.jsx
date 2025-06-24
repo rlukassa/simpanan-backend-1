@@ -1,7 +1,7 @@
-import React from 'react'
-import logoItb from '../assets/Logo_Institut_Teknologi_Bandung.svg'
+import React from 'react' // import react
+import logoItb from '../assets/Logo_Institut_Teknologi_Bandung.svg' // import logo itb
 
-const TypingIndicator = () => (
+const TypingIndicator = () => ( // komponen typing indicator
     <div className="message-bubble bot" style={{
         display: 'flex',
         flexDirection: 'column',
@@ -14,7 +14,7 @@ const TypingIndicator = () => (
             paddingLeft: '0.5rem',
             fontWeight: '500'
         }}>
-            Roga
+            Roga {/* sender name */}
         </div>
         <div className="message-text bot" style={{ 
             display: 'flex', 
@@ -22,7 +22,7 @@ const TypingIndicator = () => (
             gap: '0.5rem',
             padding: '1rem 1.25rem'
         }}>
-            <span>sedang mengetik</span>
+            <span>sedang mengetik</span> {/* typing text */}
             <div style={{ display: 'flex', gap: '2px' }}>
                 <div style={{
                     width: '6px',
@@ -30,55 +30,53 @@ const TypingIndicator = () => (
                     borderRadius: '50%',
                     backgroundColor: '#667eea',
                     animation: 'typingDot 1.4s infinite ease-in-out'
-                }}></div>
+                }}></div> {/* dot pertama */}
                 <div style={{
                     width: '6px',
                     height: '6px',
                     borderRadius: '50%',
                     backgroundColor: '#667eea',
                     animation: 'typingDot 1.4s infinite ease-in-out 0.2s'
-                }}></div>
-                <div style={{
+                }}></div> {/* dot kedua */}                <div style={{
                     width: '6px',
                     height: '6px',
                     borderRadius: '50%',
                     backgroundColor: '#667eea',
                     animation: 'typingDot 1.4s infinite ease-in-out 0.4s'
-                }}></div>
+                }}></div> {/* dot ketiga */}
             </div>
         </div>
     </div>
 )
 
-const Chatbox = ({ messages, isLoading = false }) => {
+const Chatbox = ({ messages, isLoading = false }) => { // komponen chatbox utama
 return (
-    <div className="chatbox">
-        {messages.length === 0 && !isLoading ? (
-            <div className="empty-state">
-                <div className="chatbot-icon">
+    <div className="chatbox"> {/* container chatbox */}
+        {messages.length === 0 && !isLoading ? ( // kondisi empty state
+            <div className="empty-state"> {/* empty state */}
+                <div className="chatbot-icon"> {/* icon chatbot */}
                     <img 
                         src={logoItb} 
                         alt="Logo ITB" 
                         className="chatbot-logo"
-                        onError={(e) => {
-                            console.log('Chatbot logo failed to load, using fallback');
-                            e.target.style.display = 'none';
-                            e.target.nextSibling.style.display = 'inline-block';
+                        onError={(e) => { // handler error logo
+                            console.log('Chatbot logo failed to load, using fallback'); // log error
+                            e.target.style.display = 'none'; // hide logo
+                            e.target.nextSibling.style.display = 'inline-block'; // show fallback
                         }}
                     />
-                    <span className="chatbot-logo-fallback" style={{display: 'none', fontSize: '64px'}}>🎓</span>
+                    <span className="chatbot-logo-fallback" style={{display: 'none', fontSize: '64px'}}>🎓</span> {/* fallback logo */}
                 </div>
                 <div>
                     <div style={{ fontWeight: '600', marginBottom: '0.5rem', fontSize: '1.1rem' }}>
-                        Selamat datang di Chatbot ITB!
+                        Selamat datang di Chatbot ITB! {/* welcome message */}
                     </div>
                     <div style={{ fontSize: '0.9rem', lineHeight: '1.4' }}>
-                        Tanyakan apapun tentang Institut Teknologi Bandung
+                        Tanyakan apapun tentang Institut Teknologi Bandung {/* description */}
                         <br />
                         <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>
-                            Contoh: "Apa itu ITB?", "Fakultas di ITB", "Sejarah ITB"
-                        </span>
-                    </div>
+                            Contoh: "Apa itu ITB?", "Fakultas di ITB", "Sejarah ITB" {/* example queries */}
+                        </span>                    </div>
                 </div>
             </div>
         ) : (
@@ -89,7 +87,7 @@ return (
                 height: '100%',
                 paddingBottom: '1rem'
             }}>
-                {messages.map((msg, idx) => (
+                {messages.map((msg, idx) => ( // map semua messages
                     <div
                         key={idx}
                         className={`message-bubble ${msg.from}`}
@@ -107,17 +105,16 @@ return (
                             paddingRight: msg.from === 'user' ? '0.5rem' : '0',
                             fontWeight: '500'
                         }}>
-                            {msg.from === 'user' ? 'User' : 'Roga'}
+                            {msg.from === 'user' ? 'User' : 'Roga'} {/* sender name */}
                         </div>
                         <div className={`message-text ${msg.from}`}>
-                            {msg.text}
+                            {msg.text} {/* message text */}
                         </div>
                     </div>
                 ))}
-                {isLoading && <TypingIndicator />}
+                {isLoading && <TypingIndicator />} {/* typing indicator saat loading */}
             </div>
-        )}
-        
+        )}        
         <style jsx>{`
             .chatbot-logo {
                 width: 64px;
@@ -183,9 +180,9 @@ return (
                     font-size: 48px !important;
                 }
             }
-        `}</style>
+        `}</style> {/* styles untuk chatbox */}
     </div>
 )
 }
 
-export default Chatbox
+export default Chatbox // export komponen chatbox

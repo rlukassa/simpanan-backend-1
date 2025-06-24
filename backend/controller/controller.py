@@ -1,13 +1,11 @@
-# controller 
-# Handle logic request API (seperti pengambilan intent, jawaban, dll)
+# Request Controller Layer 
+from flask import request, jsonify  # Flask HTTP utilities
+from services.services import detectIntentService  # Import business logic
 
-from flask import request, jsonify 
-# Mengimpor objek request (untuk mengambil data dari request user) dan jsonify (untuk mengembalikan response dalam format JSON).
-
-from services.services import detectIntentService #import services
-
-def handle_ask():
-    data = request.get_json() #ambil json 
-    question = data.get('question', '') # ambil "question" dari json, defaultnya kosong  
-    result = detectIntentService(question) # deteksi intent dengan service
-    return jsonify(result) # kembalikan hasil dalam format JSON
+def handleAskRequest():  # Handle POST requests to /ask endpoint
+    requestData = request.get_json()  # Parse JSON from request body
+    userQuestion = requestData.get('question', '') if requestData else ''  # Extract question field
+    print(f"DEBUG: Controller received: '{userQuestion}'")  # Log incoming request
+    serviceResult = detectIntentService(userQuestion)  # Process through ML pipeline
+    print(f"DEBUG: Service returned: {serviceResult}")  # Log service response
+    return jsonify(serviceResult)  # Return JSON response

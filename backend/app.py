@@ -1,18 +1,13 @@
-# entry point 
-# Entry point backend (tempat inisialisasi aplikasi dan load route)
-from flask import Flask
-from flask_cors import CORS
-from routes.routes import api_bp
+# Flask Application Entry Point - Main backend server
+from flask import Flask  # Web framework for Python
+from flask_cors import CORS  # Cross-Origin Resource Sharing
+from routes.routes import apiBp  # Import API routes blueprint
 
-app = Flask(__name__) # inisialisasi flask , web server Python yang bakal menjalankan API
-CORS(app)  # aktifin CORS, biar backend bissa diakses dari frontend
+app = Flask(__name__)  # Initialize Flask web application
+CORS(app)  # Enable CORS for frontend communication
 
-# Register blueprint
-app.register_blueprint(api_bp)
-# Mendaftarkan blueprint (kumpulan route/endpoint) dari routes/routes.py ke aplikasi Flask utama. Ini membuat semua endpoint yang didefinisikan di blueprint (api_bp) aktif di server Flask Anda.
+app.register_blueprint(apiBp)  # Register API routes to Flask app
 
-# Jadi, bagian ini adalah setup utama agar server Flask siap menerima request dari frontend dan endpoint-endpoint API bisa diakses.
-
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == '__main__':  # Run server if script executed directly
+    app.run(debug=True)  # Start Flask development server
 

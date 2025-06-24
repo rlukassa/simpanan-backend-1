@@ -1,14 +1,11 @@
-# route nya  Definisi endpoint API
-# Endpoint: /ask, /intents, dll
+# API Route Definition Layer
+from flask import Blueprint  # Flask blueprint for route organization
+from controller.controller import handleAskRequest  # Import request handler
 
-from flask import Blueprint #import Blueprint untuk membuat blueprint Flask
-from controller.controller import handle_ask #import fungsi handle_ask dari controller untuk menangani logika permintaan API
+apiBp = Blueprint('api', __name__)  # Create API blueprint
 
-api_bp = Blueprint('api', __name__) # buat blueprint yaitu api, yang bakal nampung semua route API
-
-# route buat ask chatbot
-@api_bp.route('/ask', methods=['POST']) # mendefinisikan route /ask dengan metode POST
-def ask():
-    return handle_ask()
+@apiBp.route('/ask', methods=['POST'])  # Define POST endpoint /ask
+def askEndpoint():  # Main chatbot endpoint
+    return handleAskRequest()  # Delegate to controller
 
 
