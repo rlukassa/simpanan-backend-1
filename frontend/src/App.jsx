@@ -13,7 +13,6 @@ function App() { // komponen utama app
   const [messages, setMessages] = useState([]) // state messages
   const [input, setInput] = useState("") // state input text
   const [isLoading, setIsLoading] = useState(false) // state loading
-
   const handleSend = async () => { // handler kirim pesan
     if (input.trim() === "" || isLoading) return // skip kalo kosong atau loading
     
@@ -24,7 +23,21 @@ function App() { // komponen utama app
     
     try {
       const data = await askToBackend(userMessage) // panggil backend
+      
+      // Tambah jawaban utama
       setMessages(prev => [...prev, { from: 'bot', text: data.answer }]) // tambah bot response
+      
+      // Tambah bubble link jika ada
+      if (data.hasLinks && data.links && data.links.length > 0) {
+        const linkMessage = {
+          from: 'bot',
+          type: 'links',
+          links: data.links,
+          text: '🔗 Link terkait:'
+        }
+        setMessages(prev => [...prev, linkMessage]) // tambah bubble link
+      }
+      
     } catch (err) {
       setMessages(prev => [...prev, { // tambah error message
         from: 'bot', 

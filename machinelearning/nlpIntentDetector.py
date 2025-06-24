@@ -3,9 +3,11 @@ Advanced NLP-based Intent Detection untuk pemahaman bahasa manusia yang natural
 """
 import re
 import nltk
+import pandas as pd
+import os
 from collections import Counter
 from difflib import SequenceMatcher
-from typing import Dict, List, Tuple, Set
+from typing import Dict, List, Tuple, Set, Optional
 import math
 
 # Download required NLTK data (jalankan sekali)
@@ -18,7 +20,13 @@ except LookupError:
         pass
 
 class NaturalLanguageIntentDetector: # detector nlp buat intent recognition
-    def __init__(self): # konstruktor detector        # Semantic word embeddings (simplified)
+    def __init__(self): # konstruktor detector
+        # Load dataset untuk link references
+        self.datasetLoaded = False # flag dataset udah dimuat
+        self.datasetDf = None # dataframe dataset
+        self.loadDataset() # muat dataset
+        
+        # Semantic word embeddings (simplified)
         self.semanticClusters = { # cluster kata semantik buat grouping
             'questionWords': { # kata tanya standar
                 'what': ['apa', 'apakah', 'gimana', 'bagaimana', 'seperti apa', 'macam apa'], # kata what
@@ -77,10 +85,127 @@ class NaturalLanguageIntentDetector: # detector nlp buat intent recognition
         self.answers = { # jawaban predefined buat intent
             'kepanjanganItb': "ITB adalah singkatan dari Institut Teknologi Bandung, yaitu perguruan tinggi teknik terkemuka di Indonesia yang didirikan pada tahun 1959.", # jawaban kepanjangan
             'jumlahFakultas': "ITB memiliki 12 fakultas dan sekolah: FTMD, FMIPA, FTSL, FTTM, FTI, SAPPK, SBM, SITH, STEI, SF, FSRD, dan FIKTM.", # jawaban jumlah fakultas
-            'sejarahItb': "ITB didirikan pada 2 Maret 1959 berdasarkan PP No. 6 Tahun 1959. ITB berkembang dari Technische Hoogeschool te Bandoeng (TH Bandung) yang berdiri tahun 1920. ITB merupakan perguruan tinggi teknik pertama di Indonesia dan tempat Presiden Soekarno meraih gelar insinyur sipil.", # jawaban sejarah
-            'lokasiItb': "ITB berlokasi di Jalan Ganesa No. 10, Bandung, Jawa Barat. ITB juga memiliki kampus lain di Cirebon dan Jakarta untuk program tertentu.", # jawaban lokasi
+            'sejarahItb': "ITB didirikan pada 2 Maret 1959 berdasarkan PP No. 6 Tahun 1959. ITB berkembang dari Technische Hoogeschool te Bandoeng (TH Bandung) yang berdiri tahun 1920. ITB merupakan perguruan tinggi teknik pertama di Indonesia dan tempat Presiden Soekarno meraih gelar insinyur sipil.", # jawaban sejarah            'lokasiItb': "ITB berlokasi di Jalan Ganesa No. 10, Bandung, Jawa Barat. ITB juga memiliki kampus lain di Cirebon dan Jakarta untuk program tertentu.", # jawaban lokasi
             'infoUmumItb': "Institut Teknologi Bandung (ITB) adalah perguruan tinggi teknik terkemuka di Indonesia yang didirikan tahun 1959. ITB memiliki 12 fakultas dengan berbagai program studi teknik dan sains, berlokasi di Bandung, Jawa Barat." # jawaban info umum
         }
+    
+    def loadDataset(self): # muat dataset csv buat akses link
+        """Load dataset CSV untuk mencari link yang relevan"""
+        try:
+            # coba muat high quality dataset dulu (dari working directory ML)
+            possiblePaths = [ # list path yang mungkin
+                'database/processed/itb_chatbot_high_quality_20250621_190153.csv',
+                '../database/processed/itb_chatbot_high_quality_20250621_190153.csv',
+                '../../database/processed/itb_chatbot_high_quality_20250621_190153.csv',
+                os.path.join(os.path.dirname(__file__), 'database', 'processed', 'itb_chatbot_high_quality_20250621_190153.csv'),
+                os.path.join(os.path.dirname(__file__), '..', 'database', 'processed', 'itb_chatbot_high_quality_20250621_190153.csv')
+            ]
+            
+            for highQualityPath in possiblePaths: # coba setiap path
+                if os.path.exists(highQualityPath): # kalau file ada
+                    self.datasetDf = pd.read_csv(highQualityPath) # muat dataset
+                    self.datasetLoaded = True # set flag loaded
+                    print(f"Dataset loaded from {highQualityPath}: {len(self.datasetDf)} records") # konfirmasi loaded
+                    return # keluar kalau berhasil
+            
+            # kalau tidak ada yang cocok, coba cari di direktori processed
+            processedDirs = [ # list direktori processed yang mungkin
+                'database/processed/',
+                '../database/processed/',
+                '../../database/processed/',
+                os.path.join(os.path.dirname(__file__), 'database', 'processed'),
+                os.path.join(os.path.dirname(__file__), '..', 'database', 'processed')
+            ]
+            
+            for processedDir in processedDirs: # coba setiap direktori
+                if os.path.exists(processedDir): # kalau direktori ada
+                    csvFiles = [f for f in os.listdir(processedDir) if f.endswith('.csv') and 'high_quality' in f] # cari file high quality
+                    if csvFiles: # kalau ada file
+                        latestFile = sorted(csvFiles)[-1] # ambil file terbaru
+                        filePath = os.path.join(processedDir, latestFile) # gabung path
+                        self.datasetDf = pd.read_csv(filePath) # muat dataset
+                        self.datasetLoaded = True # set flag loaded
+                        print(f"Dataset loaded from {filePath}: {len(self.datasetDf)} records") # konfirmasi loaded
+                        return # keluar kalau berhasil
+            
+            print("No high quality dataset found in any location") # tidak ada dataset
+            self.datasetLoaded = False # set flag tidak loaded
+            
+        except Exception as e: # handle error
+            print(f"Error loading dataset: {e}") # print error
+            self.datasetLoaded = False # set flag tidak loaded
+    
+    def findRelevantLinks(self, intent: str, query: str, topK: int = 3) -> List[Dict[str, str]]: # cari link yang relevan
+        """Cari link ITB yang relevan berdasarkan intent dan query"""
+        if not self.datasetLoaded or self.datasetDf is None: # kalau dataset tidak loaded
+            return [] # return kosong
+        
+        relevantLinks = [] # list link yang relevan
+        
+        try:
+            # filter berdasarkan kategori yang sesuai dengan intent
+            categoryMapping = { # mapping intent ke kategori
+                'kepanjanganItb': ['sejarah', 'umum'], # kepanjangan -> sejarah/umum
+                'jumlahFakultas': ['akademik', 'fakultas'], # fakultas -> akademik
+                'sejarahItb': ['sejarah'], # sejarah -> sejarah  
+                'lokasiItb': ['lokasi', 'fasilitas'], # lokasi -> lokasi/fasilitas
+                'infoUmumItb': ['sejarah', 'umum', 'akademik'] # umum -> semua kategori
+            }
+            
+            targetCategories = categoryMapping.get(intent, ['umum']) # ambil kategori target
+            
+            # filter dataset berdasarkan kategori
+            filteredDf = self.datasetDf[self.datasetDf['category'].isin(targetCategories)] # filter by category
+            
+            # filter yang punya link (bukan kosong)
+            filteredDf = filteredDf[filteredDf['links'].notna() & (filteredDf['links'] != '')] # filter yang ada link
+            
+            if len(filteredDf) == 0: # kalau tidak ada data
+                return [] # return kosong
+            
+            # scoring berdasarkan relevansi dengan query
+            queryWords = self.preprocessText(query).split() # split query jadi words
+            
+            scores = [] # list scores
+            for idx, row in filteredDf.iterrows(): # loop setiap row
+                score = 0.0 # skor awal
+                content = str(row['content']).lower() # content lowercase
+                
+                # scoring berdasarkan kecocokan kata
+                for word in queryWords: # loop setiap word di query
+                    if word in content: # kalau word ada di content
+                        score += 1.0 # tambah skor
+                
+                # bonus skor berdasarkan quality_score
+                qualityScore = row.get('quality_score', 0) # ambil quality score
+                score += qualityScore / 100.0  # normalize quality score
+                
+                scores.append((idx, score)) # tambah ke list scores
+            
+            # sort berdasarkan score tertinggi
+            scores.sort(key=lambda x: x[1], reverse=True) # sort descending
+            
+            # ambil top K results
+            for idx, score in scores[:topK]: # ambil top K
+                row = filteredDf.loc[idx] # ambil row
+                links = str(row['links']) # ambil links
+                
+                # parse multiple links (dipisah spasi atau koma)
+                linkList = re.split(r'[,\s]+', links) # split links
+                linkList = [link.strip() for link in linkList if link.strip() and link.startswith('http')] # filter valid links
+                
+                if linkList: # kalau ada valid links
+                    relevantLinks.append({ # tambah ke result
+                        'content': str(row['content'])[:100] + '...' if len(str(row['content'])) > 100 else str(row['content']), # content preview
+                        'links': linkList[:2], # maksimal 2 link
+                        'category': row['category'], # kategori
+                        'score': score # skor relevansi
+                    })
+            
+        except Exception as e: # handle error
+            print(f"Error finding relevant links: {e}") # print error
+        
+        return relevantLinks # return hasil
     def preprocessText(self, text: str) -> str: # preprocessing text buat normalisasi
         """Advanced text preprocessing"""
         # Convert to lowercase
@@ -238,16 +363,30 @@ class NaturalLanguageIntentDetector: # detector nlp buat intent recognition
         # Find best intent
         bestIntent = max(intentScores.keys(), key=lambda x: intentScores[x]['score']) # cari intent dengan skor tertinggi
         bestScore = intentScores[bestIntent]['score'] # ambil skor terbaik
-        
         return bestIntent, bestScore, intentScores # return hasil deteksi
-    def getAnswer(self, intent: str) -> str: # ambil answer berdasarkan intent
-        """Get answer for detected intent"""
-        return self.answers.get(intent, "Maaf, saya belum bisa menjawab pertanyaan tersebut.") # return answer atau default
+    
+    def getAnswer(self, intent: str, query: str = "") -> Dict[str, any]: # ambil answer berdasarkan intent
+        """Get answer for detected intent dengan link yang relevan"""
+        baseAnswer = self.answers.get(intent, "Maaf, saya belum bisa menjawab pertanyaan tersebut.") # jawaban dasar
+        
+        # cari link yang relevan
+        relevantLinks = self.findRelevantLinks(intent, query) if query else [] # cari link kalau ada query
+        
+        result = { # struktur result
+            'answer': baseAnswer, # jawaban utama
+            'links': relevantLinks, # link yang relevan
+            'hasLinks': len(relevantLinks) > 0 # flag ada link atau tidak
+        }
+        
+        return result # return hasil lengkap
     
     def analyzeQuery(self, query: str) -> Dict: # analisis query buat debugging
         """Comprehensive query analysis for debugging"""
         intent, confidence, allScores = self.detectIntentNlp(query) # deteksi intent
         features = self.extractSemanticFeatures(self.preprocessText(query)) # ekstrak fitur
+        
+        # ambil answer dengan link
+        answerData = self.getAnswer(intent, query) if confidence > 0.3 else None # ambil answer data
         
         return { # return analisis lengkap
             'originalQuery': query, # query asli
@@ -256,8 +395,27 @@ class NaturalLanguageIntentDetector: # detector nlp buat intent recognition
             'detectedIntent': intent, # intent yang terdeteksi
             'confidence': confidence, # confidence score
             'allIntentScores': allScores, # semua skor intent
-            'answer': self.getAnswer(intent) if confidence > 0.3 else None # jawaban jika confidence cukup
+            'answerData': answerData # data jawaban dengan link
         }
+
+    def getAnswerWithLinks(self, query: str) -> Dict[str, any]: # method utama buat dapetin jawaban dengan link
+        """Method utama untuk mendapatkan jawaban dengan link yang relevan"""
+        intent, confidence, _ = self.detectIntentNlp(query) # deteksi intent
+        
+        if confidence < 0.3: # kalau confidence rendah
+            return { # return default response
+                'answer': "Maaf, saya kurang memahami pertanyaan Anda. Bisa tolong diperjelas?", # jawaban default
+                'links': [], # tidak ada link
+                'hasLinks': False, # tidak ada link
+                'confidence': confidence # confidence score
+            }
+        
+        # ambil jawaban dengan link
+        result = self.getAnswer(intent, query) # ambil jawaban lengkap
+        result['confidence'] = confidence # tambah confidence
+        result['intent'] = intent # tambah intent
+        
+        return result # return hasil lengkap
 
 # Factory function
 def getNlpIntentDetector(): # factory function buat detector
