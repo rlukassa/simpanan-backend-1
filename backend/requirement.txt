@@ -1,0 +1,71 @@
+# =============================================================================
+# ITB CHATBOT - PRODUCTION REQUIREMENTS
+# =============================================================================
+# Dependencies untuk menjalankan ITB Chatbot dengan Advanced Fuzzy Matching
+# Python Version: >= 3.8
+# Last Updated: 21 Juni 2025
+
+# =============================================================================
+# CORE BACKEND DEPENDENCIES
+# =============================================================================
+
+# Web Framework
+Flask==2.3.3
+flask-cors==4.0.0
+
+# Data Processing & Analysis
+pandas>=1.5.0
+numpy>=1.21.0
+
+# Machine Learning & NLP
+scikit-learn>=1.3.0
+nltk>=3.8.1
+
+# Text Processing & Similarity
+# difflib (built-in Python module)
+
+# =============================================================================
+# SYSTEM & UTILITIES
+# =============================================================================
+
+# System & OS
+# os, sys, re, json, datetime, math, collections (all built-in)
+
+# Type Hints
+typing-extensions>=4.0.0
+
+# =============================================================================
+# DEVELOPMENT & TESTING (OPTIONAL)
+# =============================================================================
+
+# For running test suites (optional - for developers)
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# =============================================================================
+# INSTALLATION INSTRUCTIONS
+# =============================================================================
+# 
+# 1. Install Python 3.8 or higher
+# 2. Create virtual environment:
+#    python -m venv venv
+# 3. Activate virtual environment:
+#    Windows: venv\Scripts\activate
+#    Mac/Linux: source venv/bin/activate
+# 4. Install dependencies:
+#    pip install -r requirement.txt
+# 5. Download NLTK data (optional):
+#    python -c "import nltk; nltk.download('punkt')"
+# 
+# =============================================================================
+# MINIMAL INSTALLATION (CORE ONLY)
+# =============================================================================
+# If you want minimal installation, install only these:
+# - Flask==2.3.3
+# - flask-cors==4.0.0  
+# - pandas>=1.5.0
+# - numpy>=1.21.0
+# - scikit-learn>=1.3.0
+# - nltk>=3.8.1
+#
+# =============================================================================
